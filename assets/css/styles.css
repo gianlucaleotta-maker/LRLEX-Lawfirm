@@ -212,6 +212,31 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   border-color: var(--ink);
   color: var(--cream);
 }
+/* Sottopagine con .page-hero: main.js assegna .is-dark mentre l’hero è in vista.
+   Senza queste regole, .is-dark forza testo/CTA cream su header già reso chiaro = link invisibili. */
+.theme-beige-header .site-header.is-dark {
+  background: rgba(245, 241, 232, 0.95);
+  border-bottom: 1px solid var(--line);
+}
+.theme-beige-header .site-header.is-dark .nav__link,
+.theme-beige-header .site-header.is-dark .logo {
+  color: var(--ink);
+}
+.theme-beige-header .site-header.is-dark .nav__link.active {
+  color: var(--brass);
+}
+.theme-beige-header .site-header.is-dark .nav__cta {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.theme-beige-header .site-header.is-dark .nav__cta:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
+}
+.theme-beige-header .site-header.is-dark .nav__toggle span {
+  background: var(--ink);
+}
 
 .nav__menu { display: flex; align-items: center; gap: 2.4rem; list-style: none; }
 .nav__link {
@@ -313,7 +338,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   font-weight: 300;
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.45;
-  color: var(--gray-300);
+  color: var(--gray-100);
   max-width: 56ch;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
@@ -869,7 +894,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   font-family: var(--font-display);
   font-size: clamp(1.15rem, 1.7vw, 1.45rem);
   font-weight: 300;
-  color: var(--gray-300);
+  color: var(--gray-100);
   line-height: 1.45;
   max-width: 60ch;
 }
@@ -1003,23 +1028,25 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   margin: 0;
 }
 .founder--compact {
-  max-width: 900px;
-  grid-template-columns: minmax(240px, 300px) 1fr;
+  max-width: 1040px;
+  grid-template-columns: minmax(300px, 360px) 1fr;
   gap: clamp(1.2rem, 2vw, 1.9rem);
 }
 .founder--compact .founder__photo {
-  max-width: 260px;
+  max-width: 340px;
   width: 100%;
   margin: 0;
 }
 /* Foto founder: niente altezza forzata / niente “cover” — l’intera immagine al rapporto d’aspetto naturale, solo limitata in larghezza. */
 .founder--compact .founder__photo--fullframe {
-  max-width: min(100%, 300px);
+  max-width: min(100%, 340px);
   width: 100%;
   aspect-ratio: auto;
   height: auto;
+  min-height: 0;
   align-self: start;
-  overflow: visible;
+  overflow: visible !important;
+  line-height: 0;
 }
 .founder__photo--fullframe::before {
   display: none;
@@ -1050,16 +1077,17 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   z-index: 1;
 }
 /* Foto founder: niente cover, niente h 100% — l’altezza segue il file (nessun taglio sui lati o in altezza). */
+.founder--compact .founder__photo--fullframe > .founder__photo-img,
 .founder--compact .founder__photo--fullframe .founder__photo-img--uncropped,
 .founder--compact .founder__photo--fullframe .founder__photo-img.founder__photo-img--full {
   display: block;
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
+  min-height: 0 !important;
   max-height: none !important;
-  min-height: 0;
-  object-position: 50% 50%;
   object-fit: contain !important;
+  object-position: 50% 15% !important;
   position: relative;
   z-index: 1;
   background: var(--ink);
@@ -1373,7 +1401,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .team-card { max-width: 210px; }
   .team-card .person__photo { max-width: 210px; }
   .founder { grid-template-columns: 1fr; gap: 2rem; }
-  .founder__photo { max-width: 280px; }
+  .founder__photo { max-width: 320px; }
   .sede-card { grid-template-columns: 1fr; }
   .sede-card__visual { min-height: 260px; }
   .sede-card__map-wrap { min-height: 260px; }
