@@ -1,13 +1,23 @@
 [
   {
-    "id": "audiencerate-microsoft-2026",
-    "date": "2026-04-20",
-    "category": "Deal Announcement",
-    "title": "LR LEX assiste Audiencerate nella partnership tri-brand con Microsoft Italia e Postel",
-    "excerpt": "Lo studio ha curato il framework contrattuale del nuovo accordo strategico per la distribuzione della piattaforma CDP di Audiencerate al mercato delle PMI italiane, con lancio commerciale previsto per maggio 2026.",
-    "url": "#",
-    "external": false,
-    "featured": true
+    "id": "audiencerate-microsoft-ntplus-sole24",
+    "date": "2024-12-15",
+    "category": "Media",
+    "title": "LR LEX e Audiencerate: partnership Microsoft (cloud, dati e intelligenza artificiale)",
+    "excerpt": "Rassegna su Il Sole 24 Ore — NT+ Diritto: l'impegno dello studio nello sviluppo del rapporto tra Audiencerate e Microsoft in ambito cloud, trattamento dati e soluzioni di intelligenza artificiale.",
+    "url": "https://ntplusdiritto.ilsole24ore.com/art/lr-lex-audiencerate-lo-sviluppo-partnership-microsoftnel-cloud-dati-e-nell-intelligenza-artificiale-AFDKSdMC",
+    "external": true,
+    "featured": false
+  },
+  {
+    "id": "audiencerate-microsoft-legalcommunity",
+    "date": "2024-12-15",
+    "category": "Media",
+    "title": "LR LEX con Audiencerate per la partnership con Microsoft",
+    "excerpt": "Rassegna su Legalcommunity: l'assistenza dello studio a Audiencerate nello sviluppo del rapporto con Microsoft su cloud, dati e soluzioni di intelligenza artificiale.",
+    "url": "https://legalcommunity.it/lr-lex-con-audiencerate-per-la-partnership-con-microsoft/",
+    "external": true,
+    "featured": false
   },
   {
     "id": "asla-membership",
@@ -17,14 +27,14 @@
     "excerpt": "LR LEX entra ufficialmente in ASLA, la principale associazione italiana degli studi legali associati, consolidando il proprio posizionamento nel mercato dei legal services di alta gamma.",
     "url": "https://it.linkedin.com/posts/legali-riuniti-lex-avvocati-associati_il-nostro-studio-entra-in-asla-activity-7202427033241473024-W0OX",
     "external": true,
-    "featured": false
+    "featured": true
   },
   {
     "id": "corporate-awards-2023",
     "date": "2023-11-15",
     "category": "Riconoscimenti",
-    "title": "Quattro candidature ai Legal Community Corporate Awards 2023",
-    "excerpt": "Lo studio è arrivato in finale come Law Firm of the Year nelle categorie M&A Family Business, M&A Mid-Market, Media & TLC e Venture Capital. Il Partner Gianluca Leotta finalista come Avvocato dell'Anno Media e TLC.",
+    "title": "Candidature ai Legal Community Corporate Awards 2023",
+    "excerpt": "Lo studio è arrivato in finale come Law Firm of the Year nelle categorie Media & TLC e Venture Capital. Il Partner Gianluca Leotta finalista come Avvocato dell'Anno Media e TLC.",
     "url": "#",
     "external": false,
     "featured": false
@@ -64,7 +74,7 @@
     "date": "2022-11-30",
     "category": "Riconoscimenti",
     "title": "Boutique Legale di Eccellenza 2022 — Diritto Societario M&A",
-    "excerpt": "Lo studio è stato premiato come Boutique Legale di Eccellenza dell'Anno 2022 nella categoria Diritto Societario M&A, riconoscimento al lavoro del Partner Gianluca Leotta e dei Senior Associate Carla Talarico e Gaetano Bentivegna.",
+    "excerpt": "Lo studio è stato premiato come Boutique Legale di Eccellenza dell'Anno 2022 nella categoria Diritto Societario M&A, riconoscimento al lavoro del Partner Gianluca Leotta e dei Partner Carla Talarico e Gaetano Bentivegna.",
     "url": "#",
     "external": false,
     "featured": false
@@ -77,16 +87,6 @@
     "excerpt": "Lo studio milanese fondato dall'avvocato Gianluca Leotta entra in ELITE, il private market che connette le imprese a diverse fonti di capitale, riconoscendone l'eccellenza nel settore legal e l'innovazione.",
     "url": "https://www.sporteconomy.it/legali-riuniti-lex-entra-in-elite/",
     "external": true,
-    "featured": false
-  },
-  {
-    "id": "manuale-ma",
-    "date": "2022-04-15",
-    "category": "Pubblicazioni",
-    "title": "Pubblicato il nuovo Manuale di M&A — capitolo Italia",
-    "excerpt": "Il Partner Gianluca Leotta e la Senior Associate Carla Talarico hanno scritto il capitolo dedicato al mercato italiano nel nuovo Manuale di M&A, opera di riferimento per professionisti dell'M&A internazionale.",
-    "url": "#",
-    "external": false,
     "featured": false
   }
 ]

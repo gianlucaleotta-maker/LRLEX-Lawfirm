@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel (opz.: cartella generata in locale)
+.vercel
+
+# Editor / tool
+.env
+.env.*
+*.log
+node_modules/
+.cursor/

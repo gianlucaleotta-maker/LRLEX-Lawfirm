@@ -11,7 +11,7 @@ lrlex-website/
 ├── index.html                      ← Homepage
 ├── pages/
 │   ├── aree-di-pratica.html        ← 9 pratiche con sidebar di navigazione
-│   ├── team.html                   ← Partner, Senior Associate, Trainee
+│   ├── team.html                   ← Partner, Office Manager
 │   ├── news.html                   ← Archivio completo news (legge data/news.json)
 │   └── contatti.html               ← Form, sede, mappa
 ├── data/
@@ -32,7 +32,7 @@ Apri `data/news.json` e aggiungi un blocco in **alto** (prima delle altre voci):
 ```json
 {
   "id": "slug-univoco-della-notizia",
-  "date": "2026-04-26",
+  "date": "2024-06-15",
   "category": "Deal Announcement",
   "title": "Titolo della notizia",
   "excerpt": "Breve descrizione che apparirà nella card (2-3 righe).",
@@ -58,24 +58,19 @@ Apri `data/news.json` e aggiungi un blocco in **alto** (prima delle altre voci):
 
 ---
 
-## Deploy in 5 minuti
+## GitHub e Vercel (flusso consigliato)
 
-### Opzione A — Hosting attuale (FTP)
-1. Carica tutti i file (`index.html`, `pages/`, `assets/`, `data/`) nella root del sito via FTP.
-2. Done.
+1. **Repository** — codice sorgente su [GitHub](https://github.com) (`gianlucaleotta-maker/LRLEX-Lawfirm` o il tuo fork).
+2. **Push** — lavora su `main` (o apri un branch e una Pull Request) e `git push origin main` per aggiornare il remoto.
+3. **Vercel collegata a GitHub** — in [vercel.com](https://vercel.com) → **Add New** → **Project** → *Import* il repository GitHub. Tipo: **Other** (sito statico, nessun `npm build` necessario). La root del deploy è la root del repo; `vercel.json` imposta `cleanUrls` e le cache su asset / `data/`.
+4. **Deploy** — ogni push su `main` (o su branch connessi in impostazioni) attiva un nuovo deploy. In **Settings → Domains** aggiungi `lrlex.it` (o altro) e configura i DNS come indicato da Vercel.
+5. **Solo Vercel senza Git** (alternativa) — *Deploy* manuale trascinando la cartella su Vercel; meno comodo per aggiornamenti continui rispetto al collegamento Git.
 
-### Opzione B — Vercel (consigliato, gratuito, CDN globale, deploy con un click)
-1. Crea account su [vercel.com](https://vercel.com)
-2. Drag-and-drop della cartella `lrlex-website/` su Vercel.
-3. URL pubblicato automaticamente. Per dominio personalizzato `lrlex.it`: Settings → Domains → punta i DNS.
+### Altre opzioni di deploy
 
-### Opzione C — Netlify (alternativa equivalente)
-1. Account su [netlify.com](https://netlify.com)
-2. Drag-and-drop cartella in [app.netlify.com/drop](https://app.netlify.com/drop)
-
-### Opzione D — GitHub Pages
-1. Push su repository GitHub
-2. Settings → Pages → Branch: `main`, Folder: `/ (root)`
+- **FTP** — carica in root `index.html`, `pages/`, `assets/`, `data/`.
+- **Netlify** — [drop](https://app.netlify.com/drop) o collega il repo come per Vercel.
+- **GitHub Pages** — repository → *Settings* → *Pages* → branch `main`, cartella `/ (root)`.
 
 ---
 
