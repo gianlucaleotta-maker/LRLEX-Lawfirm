@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Insights — LR LEX</title>
+  <meta name="description" content="Operazioni recenti, riconoscimenti, pubblicazioni e insight giuridici dello studio LR LEX.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+  <header class="site-header is-dark">
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="logo"><span class="logo__mark">LR</span><span class="logo__sep"></span><span>LEX</span></a>
+      <ul class="nav__menu">
+        <li><a href="../index.html" class="nav__link">Studio</a></li>
+        <li><a href="aree-di-pratica.html" class="nav__link">Aree di Pratica</a></li>
+        <li><a href="team.html" class="nav__link">Professionisti</a></li>
+        <li><a href="news.html" class="nav__link active">News &amp; Insights</a></li>
+        <li><a href="contatti.html" class="nav__link">Contatti</a></li>
+      </ul>
+      <a href="contatti.html" class="nav__cta">Parliamone →</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="page-hero__breadcrumb">
+        <a href="../index.html">LR LEX</a>
+        <span class="page-hero__breadcrumb-sep">/</span>
+        News &amp; Insights
+      </p>
+      <h1 class="page-hero__title">News &amp; <em>Insights</em></h1>
+      <p class="page-hero__sub">
+        Operazioni recenti, riconoscimenti, pubblicazioni e insight giuridici di LR LEX.
+        Aggiornamenti sui mandati, sulle classifiche e sui contributi dei nostri professionisti.
+      </p>
+    </div>
+  </section>
+
+  <section class="section news">
+    <div class="container">
+      <div id="news-grid-full" class="news__grid">
+        <!-- Caricato dinamicamente da news.json -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <p class="footer__brand">LR <em>LEX</em></p>
+          <p class="footer__tagline">Legali Riuniti Lex — Studio Legale d'Affari dedicato alle imprese e agli investitori.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Sede</p>
+          <ul class="footer__list">
+            <li>Foro Buonaparte, 51</li>
+            <li>20121 Milano · Italia</li>
+            <li><span class="label">Tel</span><a href="tel:+390282196887">+39 02 8219 6887</a></li>
+            <li><span class="label">Fax</span>+39 02 8718 1571</li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Contatti</p>
+          <ul class="footer__list">
+            <li><a href="mailto:info@lrlex.it">info@lrlex.it</a></li>
+            <li><a href="mailto:segreteria@lrlex.it">segreteria@lrlex.it</a></li>
+            <li><span class="label">PEC</span><a href="mailto:legaliriunitilex@pec.it">legaliriunitilex@pec.it</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Naviga</p>
+          <ul class="footer__list">
+            <li><a href="aree-di-pratica.html">Aree di Pratica</a></li>
+            <li><a href="team.html">Professionisti</a></li>
+            <li><a href="news.html">News &amp; Insights</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Legali Riuniti Lex — Avvocati Associati. P.IVA 11580530969</span>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Note Legali</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    // Carica TUTTE le news (no limit), prima sempre featured
+    document.addEventListener('DOMContentLoaded', () => {
+      window.LRLEX.loadNews('news-grid-full', { limit: null, featuredFirst: true });
+    });
+  </script>
+</body>
+</html>
