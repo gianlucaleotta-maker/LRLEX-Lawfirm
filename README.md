@@ -1,6 +1,6 @@
 # LR LEX — Sito Web Ufficiale
 
-Sito statico per **Legali Riuniti Lex (LR LEX)** — Studio Legale d'Affari, Milano.
+Sito statico per **LR LEX** — Studio Legale d'Affari, Milano.
 
 ---
 
@@ -159,4 +159,4 @@ Prima della messa online, completare:
 
 ---
 
-© 2026 Legali Riuniti Lex — Avvocati Associati
+© 2026 LR LEX — Avvocati Associati

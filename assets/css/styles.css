@@ -1,5 +1,5 @@
 /* ================================================================
-   LR LEX — Legali Riuniti Lex
+   LR LEX
    Editorial design system inspired by top international law firms
    ================================================================ */
 
@@ -143,15 +143,13 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(245, 241, 232, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-  transition: background 0.3s var(--ease-out);
+  background: #24272b;
+  border-bottom: 1px solid rgba(184, 154, 103, 0.45);
+  transition: border-color 0.3s var(--ease-out);
 }
 .site-header.is-dark {
-  background: rgba(15, 20, 25, 0.92);
-  border-bottom-color: var(--line-light);
+  background: #24272b;
+  border-bottom-color: rgba(184, 154, 103, 0.45);
 }
 .site-header.is-dark .nav__link,
 .site-header.is-dark .logo { color: var(--cream); }
@@ -172,39 +170,53 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   padding: 1.2rem 0;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding-left: var(--gutter);
+  padding-left: clamp(0.75rem, 1.2vw, 1.2rem);
   padding-right: var(--gutter);
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--ink);
   display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 0;
+  line-height: 0;
 }
-.logo__mark {
-  font-weight: 500;
-  color: var(--brass);
+.logo__img {
+  display: block;
+  width: auto;
+  height: 40px;
+  max-width: 100%;
 }
-.logo__sep {
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  background: var(--brass);
-  border-radius: 50%;
-  margin: 0 0.3rem;
-  transform: translateY(-3px);
+.logo__img--light { display: none; }
+.logo__img--dark { display: block; }
+.logo--icon {
+  min-width: auto;
+}
+.logo__img--icon {
+  height: 48px;
+}
+
+.theme-beige-header .site-header {
+  background: rgba(245, 241, 232, 0.95);
+  border-bottom: 1px solid var(--line);
+}
+.theme-beige-header .nav__link { color: var(--ink); }
+.theme-beige-header .nav__cta {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.theme-beige-header .nav__cta:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--cream);
 }
 
 .nav__menu { display: flex; align-items: center; gap: 2.4rem; list-style: none; }
 .nav__link {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--ink);
+  color: var(--cream);
   letter-spacing: 0.02em;
   position: relative;
   padding: 0.4rem 0;
@@ -226,11 +238,12 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   font-size: var(--text-sm);
   font-weight: 500;
   padding: 0.65rem 1.4rem;
-  border: 1px solid var(--ink);
+  border: 1px solid rgba(245, 241, 232, 0.45);
+  color: var(--cream);
   border-radius: 999px;
   transition: all 0.3s var(--ease-out);
 }
-.nav__cta:hover { background: var(--ink); color: var(--cream); }
+.nav__cta:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
 
 .nav__toggle { display: none; }
 
@@ -771,13 +784,20 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   margin-bottom: clamp(3rem, 5vw, 4rem);
 }
 .footer__brand {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  background: #24272b;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
   margin-bottom: 1.2rem;
-  letter-spacing: -0.02em;
 }
-.footer__brand em { color: var(--brass); font-style: italic; }
+.footer__brand-logo {
+  display: block;
+  width: auto;
+  height: 56px;
+  max-width: min(100%, 220px);
+}
+.footer__brand-logo--dark { display: block; }
 .footer__tagline {
   font-family: var(--font-display);
   font-size: 1.05rem;
@@ -1173,6 +1193,9 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 
 /* --- Mobile (<= 900px) --- */
 @media (max-width: 900px) {
+  .logo { min-width: 205px; }
+  .logo__img { height: 34px; }
+  .logo__img--icon { height: 40px; }
   .nav__menu { display: none; }
   .nav__cta { display: none; }
   .nav__toggle {
@@ -1184,7 +1207,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .nav__toggle span {
     width: 26px;
     height: 1.5px;
-    background: var(--ink);
+    background: var(--cream);
     transition: all 0.3s var(--ease-out);
   }
   .site-header.is-dark .nav__toggle span { background: var(--cream); }
@@ -1192,14 +1215,17 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     display: flex;
     position: fixed;
     inset: 70px 0 0 0;
-    background: var(--cream);
+    background: #24272b;
     flex-direction: column;
     align-items: flex-start;
     padding: 2rem var(--gutter);
     gap: 1.5rem;
     z-index: 50;
   }
-  .nav__menu.is-open .nav__link { font-size: 1.4rem; font-family: var(--font-display); }
+  .nav__menu.is-open .nav__link { font-size: 1.4rem; font-family: var(--font-display); color: var(--cream); }
+  .theme-beige-header .nav__toggle span { background: var(--ink); }
+  .theme-beige-header .nav__menu.is-open { background: var(--cream); }
+  .theme-beige-header .nav__menu.is-open .nav__link { color: var(--ink); }
 
   .marquee__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .practices__grid { grid-template-columns: 1fr; }
@@ -1231,6 +1257,10 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 }
 
 @media (max-width: 600px) {
+  .logo { min-width: 185px; }
+  .logo__img { height: 30px; }
+  .logo__img--icon { height: 36px; }
+  .footer__brand-logo { height: 50px; }
   .footer__grid { grid-template-columns: 1fr; }
   .editorial__visual-quote { inset: 1.5rem; }
   .editorial__visual-quote-mark { font-size: 5rem; }
