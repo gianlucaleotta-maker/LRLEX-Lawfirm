@@ -1511,6 +1511,16 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .track-record-page .recognitions__tag {
     color: var(--ink) !important;
   }
+  .track-record-page .recognitions__item,
+  .track-record-page .recognitions__item * {
+    color: var(--ink) !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: var(--ink) !important;
+  }
+  .track-record-page .recognitions__item em {
+    color: var(--brass-deep) !important;
+    -webkit-text-fill-color: var(--brass-deep) !important;
+  }
   .track-record-page .recognitions__tag {
     border-color: var(--gray-600) !important;
   }
@@ -1527,6 +1537,10 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     overflow-wrap: anywhere;
   }
   .track-record-page .recognitions__source a {
+    color: var(--ink) !important;
+    -webkit-text-fill-color: var(--ink) !important;
+    text-decoration: underline;
+    text-underline-offset: 2px;
     overflow-wrap: anywhere;
     word-break: break-word;
   }
