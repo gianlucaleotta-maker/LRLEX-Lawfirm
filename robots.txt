@@ -1,0 +1,5 @@
+# https://www.lrlex.it/ — LR LEX
+User-agent: *
+Allow: /
+
+Sitemap: https://lrlex.it/sitemap.xml

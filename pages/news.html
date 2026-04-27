@@ -7,6 +7,10 @@
   <link rel="apple-touch-icon" href="../assets/img/favicon.png">
   <title>News &amp; Insights — LR LEX</title>
   <meta name="description" content="Operazioni recenti, riconoscimenti, pubblicazioni e insight giuridici dello studio LR LEX.">
+  <link rel="canonical" href="https://lrlex.it/pages/news.html">
+  <link rel="alternate" hreflang="it" href="https://lrlex.it/pages/news.html">
+  <link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/news.html">
+  <link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/news.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,7 +27,7 @@
         <li><a href="team.html" class="nav__link">Professionisti</a></li>
         <li><a href="news.html" class="nav__link active">News &amp; Insights</a></li>
         <li><a href="contatti.html" class="nav__link">Contatti</a></li>
-        <li><a href="../en/pages/news.html" class="nav__link">EN</a></li>
+        <li><a href="/en/pages/news.html" class="nav__link">EN</a></li>
       </ul>
       <a href="contatti.html" class="nav__cta">Contatti →</a>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -47,9 +51,15 @@
 
   <section class="section news">
     <div class="container">
-      <div id="news-grid-full" class="news__grid">
-        <!-- Caricato dinamicamente da news.json -->
+      <div id="news-grid-full" class="news__grid" aria-live="polite">
+        <p class="reveal" style="color: var(--gray-700); margin: 0;">Caricamento elenco…</p>
       </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--paper);">
+    <div class="container" style="text-align: center;">
+      <a href="track-record.html" class="btn btn--dark">Track record e pubblicazioni <span class="btn__arrow">→</span></a>
     </div>
   </section>
 
@@ -90,9 +100,9 @@
       <div class="footer__bottom">
         <span>© 2026 LR LEX — Avvocati Associati. P.IVA 11580530969</span>
         <div class="footer__legal">
-          <a href="[URL_IUBENDA_PRIVACY_IT]" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-          <a href="[URL_IUBENDA_COOKIE_IT]" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
-          <a href="[URL_IUBENDA_TERMS_IT]" target="_blank" rel="noopener noreferrer">Note Legali</a>
+          <a href="https://www.iubenda.com/privacy-policy/25975763" class="iubenda-black iubenda-noiframe iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+          <a href="https://www.iubenda.com/privacy-policy/25975763/cookie-policy" class="iubenda-black iubenda-noiframe iubenda-embed" title="Cookie Policy">Cookie Policy</a>
+          <a href="https://www.iubenda.com/termini-e-condizioni/25975763" class="iubenda-black iubenda-noiframe iubenda-embed" title="Termini e Condizioni">Termini e Condizioni</a>
         </div>
       </div>
     </div>
@@ -100,11 +110,12 @@
 
   <script src="../assets/js/main.js"></script>
   <script>
-    // Carica TUTTE le news (no limit), prima sempre featured
     document.addEventListener('DOMContentLoaded', () => {
+      window.LRLEX.config.newsEndpoint = '/data/news.json';
       window.LRLEX.loadNews('news-grid-full', { limit: null, featuredFirst: true });
     });
   </script>
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/00dc8dd1-aa97-4a5b-afc3-b524e08005de.js"></script>
+  <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 </body>
 </html>

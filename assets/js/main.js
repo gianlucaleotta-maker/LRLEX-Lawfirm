@@ -31,9 +31,21 @@
 
   // Generate vCard files on-the-fly (no server-side .vcf required).
   const VCARD_ORG = 'LR LEX - Studio Legale';
-  const VCARD_TEL = '+39 02 8219 6887';
+  const VCARD_TEL_WORK = '+39 02 8219 6887';
   const VCARD_ADDRESS = ';;Foro Buonaparte 51;Milano;MI;20121;Italy';
   const VCARD_URL = 'https://lrlex.it';
+  /** Cellulari di riferimento (allineati agli asset statici in assets/vcards/). */
+  const mobileTelByName = {
+    'Gianluca Leotta': ['+39 3497853587'],
+    'Debora Folisi': ['+39 3458490473', '+1 8134890911'],
+    'Carla Talarico': ['+39 3315987822'],
+    'Gaetano Bentivegna': ['+39 3931362807'],
+    'Maria Francesca Tucci': ['+39 3428907772'],
+    'Shqipe Mahmuti': ['+39 3801397140'],
+    'Francesco Cordova': ['+39 3896817825'],
+    'Rocco Pierri': ['+39 3476754600'],
+    'Giulia Savorelli': ['+39 3420355817']
+  };
   const titleByName = {
     'Gianluca Leotta': 'Founder / Partner',
     'Debora Folisi': 'Partner',
@@ -73,19 +85,30 @@
       .replace(/;/g, '\\;');
   }
 
+  function mobilesForPerson(fullName) {
+    const key = String(fullName).replace(/\s+/g, ' ').trim();
+    return mobileTelByName[key] || [];
+  }
+
   function buildVCard({ fullName, title, email }) {
-    return [
+    const lines = [
       'BEGIN:VCARD',
       'VERSION:3.0',
       `FN:${escapeVCard(fullName)}`,
       `ORG:${escapeVCard(VCARD_ORG)}`,
       `TITLE:${escapeVCard(title)}`,
       `EMAIL;TYPE=INTERNET,WORK:${escapeVCard(email)}`,
-      `TEL;TYPE=WORK,VOICE:${escapeVCard(VCARD_TEL)}`,
+      `TEL;TYPE=WORK,VOICE:${escapeVCard(VCARD_TEL_WORK)}`
+    ];
+    mobilesForPerson(fullName).forEach((tel) => {
+      lines.push(`TEL;TYPE=CELL,VOICE:${escapeVCard(tel)}`);
+    });
+    lines.push(
       `ADR;TYPE=WORK,PREF:${escapeVCard(VCARD_ADDRESS)}`,
       `URL:${escapeVCard(VCARD_URL)}`,
       'END:VCARD'
-    ].join('\n');
+    );
+    return lines.join('\n');
   }
 
   function inferEmailForVCard(link) {
@@ -201,40 +224,49 @@
 
 window.LRLEX = window.LRLEX || {};
 window.LRLEX.config = {
-  // Single point of truth — change this when you switch to a real API
-  newsEndpoint: 'data/news.json',
+  // Path from site root (works on /, /en/, /pages/…, /en/pages/… without double ../ bugs)
+  newsEndpoint: '/data/news.json',
   // For the homepage we show featured + 2 latest. For news.html we show all.
   homepageLimit: 3
 };
+
+function resolveNewsEndpoint() {
+  const configEp = (window.LRLEX.config && window.LRLEX.config.newsEndpoint) || '/data/news.json';
+  if (configEp.startsWith('http') || configEp.startsWith('/')) return configEp;
+  if (configEp.indexOf('..') !== -1) return configEp;
+  const inSubdir = window.location.pathname.includes('/pages/');
+  return (inSubdir ? '../' : '') + configEp;
+}
 
 window.LRLEX.loadNews = async function (containerId, opts = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const { limit = null, featuredFirst = true } = opts;
-
-  // Build URL — works both on root and /pages/ subpages
-  const path = window.location.pathname;
-  const inSubdir = path.includes('/pages/');
-  const endpoint = (inSubdir ? '../' : '') + window.LRLEX.config.newsEndpoint;
+  const endpoint = resolveNewsEndpoint();
+  const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
 
   try {
     const res = await fetch(endpoint, { cache: 'no-cache' });
     if (!res.ok) throw new Error('Fetch failed');
     let data = await res.json();
+    if (!data || !data.length) throw new Error('No items');
 
-    // Sort newest first
-    data.sort((a, b) => new Date(b.date) - new Date(a.date));
+    if (limit) {
+      data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      data = data.slice(0, limit);
+    } else {
+      data.sort((a, b) => (Number(!!b.featured) - Number(!!a.featured)) || (new Date(b.date) - new Date(a.date)));
+    }
 
-    // Apply limit
-    if (limit) data = data.slice(0, limit);
-
-    // Render
-    container.innerHTML = data.map((item, i) => renderNewsCard(item, i === 0 && featuredFirst)).join('');
-    // Hook newly-added .reveal elements into the IntersectionObserver
+    container.innerHTML = data
+      .map((item, i) => renderNewsCard(item, i === 0 && featuredFirst))
+      .join('');
     if (window.LRLEX.observeReveals) window.LRLEX.observeReveals(container);
   } catch (err) {
-    console.warn('News loading failed, falling back to static markup', err);
-    // Static fallback: keep whatever the HTML originally had
+    console.warn('News loading failed', err);
+    container.innerHTML = isEn
+      ? '<p class="news__error" role="alert" style="color: var(--gray-700); max-width: 36rem; line-height:1.6;">We could not load the news list. If you are viewing this file offline, open the site on <strong>lrlex.it</strong> or <a class="subtle-link" href="/data/news-en.json">/data/news-en.json</a>.</p>'
+      : '<p class="news__error" role="alert" style="color: var(--gray-700); max-width: 36rem; line-height:1.6;">Non è stato possibile caricare l&rsquo;elenco. Se stai aprendo la pagina in <em>file</em> locale, visita <strong>lrlex.it</strong> oppure verifica <a class="subtle-link" href="/data/news.json">/data/news.json</a>.</p>';
   }
 };
 

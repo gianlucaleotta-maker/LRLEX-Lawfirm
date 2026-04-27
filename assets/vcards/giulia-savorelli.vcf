@@ -5,6 +5,7 @@ ORG:LR LEX - Studio Legale
 TITLE:Office Manager
 EMAIL;TYPE=INTERNET,WORK:segreteria@lrlex.it
 TEL;TYPE=WORK,VOICE:+39 02 8219 6887
+TEL;TYPE=CELL,VOICE:+39 3420355817
 ADR;TYPE=WORK,PREF:;;Foro Buonaparte 51;Milano;MI;20121;Italy
 URL:https://lrlex.it
 END:VCARD

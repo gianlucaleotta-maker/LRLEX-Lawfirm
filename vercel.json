@@ -5,6 +5,28 @@
   "outputDirectory": null,
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/avvocato-gianluca-leotta",
+      "destination": "/pages/team.html",
+      "permanent": true
+    },
+    {
+      "source": "/avvocato-gianluca-leotta/",
+      "destination": "/pages/team.html",
+      "permanent": true
+    },
+    {
+      "source": "/en/pages/aree-di-pratica",
+      "destination": "/en/pages/practice-areas",
+      "permanent": true
+    },
+    {
+      "source": "/en/pages/aree-di-pratica.html",
+      "destination": "/en/pages/practice-areas.html",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -22,6 +44,20 @@
       "source": "/data/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=300" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" },
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
       ]
     }
   ]
