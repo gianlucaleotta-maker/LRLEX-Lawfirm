@@ -1483,9 +1483,11 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   padding: 0.15rem 0;
   display: inline-flex;
   align-items: center;
+  border-bottom: 1px solid transparent;
 }
 .person__action-link:hover {
   color: var(--ink);
+  border-bottom-color: rgba(15, 20, 25, 0.25);
 }
 
 /* --- Animations --- */
@@ -1681,6 +1683,20 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .person__actions {
     opacity: 1;
     transform: none;
+    gap: 0.6rem 0.7rem;
+    margin-top: 1.1rem;
+  }
+  .person__action-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    padding: 0.35rem 0.55rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .person__actions .person__action-link + .person__action-link {
+    margin-left: 0 !important;
   }
   .recognitions__item {
     grid-template-columns: 1fr;
