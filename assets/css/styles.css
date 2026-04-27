@@ -1508,6 +1508,14 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     grid-template-columns: 1fr !important;
     gap: 0.5rem !important;
     align-items: start;
+    grid-auto-flow: row;
+  }
+  .track-record-page .recognitions__item > * {
+    grid-column: 1 / -1 !important;
+    min-width: 0;
+    width: 100%;
+    justify-self: start;
+    align-self: start;
   }
   .track-record-page .recognitions__year,
   .track-record-page .recognitions__title,
@@ -1537,6 +1545,9 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     font-size: 1.05rem;
     line-height: 1.45;
     display: block;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
   }
   .track-record-page .recognitions__source {
     font-size: 0.92rem;
@@ -1559,6 +1570,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     display: inline-flex;
     justify-self: start;
     width: fit-content;
+    max-width: 100%;
   }
 
   .marquee__grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
