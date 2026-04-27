@@ -1504,6 +1504,11 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .track-record-page .recognitions__item:hover {
     padding-left: 0;
   }
+  .track-record-page .recognitions__item {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+    align-items: start;
+  }
   .track-record-page .recognitions__year,
   .track-record-page .recognitions__title,
   .track-record-page .recognitions__title strong,
@@ -1526,15 +1531,18 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   }
   .track-record-page .recognitions__year {
     font-size: 1rem;
+    display: block;
   }
   .track-record-page .recognitions__title {
     font-size: 1.05rem;
     line-height: 1.45;
+    display: block;
   }
   .track-record-page .recognitions__source {
     font-size: 0.92rem;
     line-height: 1.5;
     overflow-wrap: anywhere;
+    display: block;
   }
   .track-record-page .recognitions__source a {
     color: var(--ink) !important;
@@ -1548,6 +1556,9 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     font-size: 0.68rem;
     letter-spacing: 0.11em;
     padding: 0.3rem 0.65rem;
+    display: inline-flex;
+    justify-self: start;
+    width: fit-content;
   }
 
   .marquee__grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
