@@ -2,12 +2,24 @@
 .DS_Store
 Thumbs.db
 
-# Vercel (opz.: cartella generata in locale)
-.vercel
+# Editor / IDE
+.cursor/
+.vscode/
+.idea/
 
-# Editor / tool
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules/
+
+# Environment files
 .env
 .env.*
-*.log
-node_modules/
-.cursor/
+.env*.local
+
+# Vercel (locale)
+.vercel
