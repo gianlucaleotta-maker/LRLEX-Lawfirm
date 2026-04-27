@@ -733,6 +733,19 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   justify-self: end;
 }
 /* Track record pages use light backgrounds; override recognitions palette. */
+.track-record-page .page-hero__breadcrumb,
+.track-record-page .page-hero__breadcrumb a {
+  color: var(--gray-700);
+}
+.track-record-page .page-hero__breadcrumb a:hover {
+  color: var(--ink);
+}
+.track-record-page .page-hero__title {
+  color: var(--ink);
+}
+.track-record-page .page-hero__sub {
+  color: var(--gray-700);
+}
 .track-record-page .recognitions__list { border-top: 1px solid var(--line); }
 .track-record-page .recognitions__item { border-bottom: 1px solid var(--line); }
 .track-record-page .recognitions__title,
