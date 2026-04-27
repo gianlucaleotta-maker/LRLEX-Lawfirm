@@ -1440,6 +1440,20 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .theme-beige-header .nav__toggle span { background: var(--ink); }
   .theme-beige-header .nav__menu.is-open { background: var(--cream); }
   .theme-beige-header .nav__menu.is-open .nav__link { color: var(--ink); }
+  /* Safety overrides for Track Record pages on mobile to avoid low contrast text. */
+  .track-record-page .page-hero__breadcrumb,
+  .track-record-page .page-hero__breadcrumb a,
+  .track-record-page .page-hero__title,
+  .track-record-page .page-hero__sub {
+    color: var(--ink) !important;
+  }
+  .track-record-page .page-hero__breadcrumb-sep {
+    color: var(--gray-600) !important;
+  }
+  .track-record-page .site-header .nav__link,
+  .track-record-page .site-header .logo {
+    color: var(--ink) !important;
+  }
 
   .marquee__grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .practices__grid { grid-template-columns: 1fr; }
