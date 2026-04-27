@@ -15,6 +15,123 @@
     document.body.classList.add('track-record-page');
   }
 
+  // Build email links client-side from data attributes (basic obfuscation).
+  document.querySelectorAll('[data-mail-user][data-mail-domain]').forEach((link) => {
+    const user = link.getAttribute('data-mail-user');
+    const domain = link.getAttribute('data-mail-domain');
+    if (!user || !domain) return;
+    const subject = link.getAttribute('data-mail-subject') || '';
+    const address = `${user}@${domain}`;
+    const params = subject ? `?subject=${encodeURIComponent(subject)}` : '';
+    link.setAttribute('href', `mailto:${address}${params}`);
+    if (!link.getAttribute('aria-label')) {
+      link.setAttribute('aria-label', `Invia email a ${address}`);
+    }
+  });
+
+  // Generate vCard files on-the-fly (no server-side .vcf required).
+  const VCARD_ORG = 'LR LEX - Studio Legale';
+  const VCARD_TEL = '+39 02 8219 6887';
+  const VCARD_ADDRESS = ';;Foro Buonaparte 51;Milano;MI;20121;Italy';
+  const VCARD_URL = 'https://lrlex.it';
+  const titleByName = {
+    'Gianluca Leotta': 'Founder / Partner',
+    'Debora Folisi': 'Partner',
+    'Carla Talarico': 'Partner',
+    'Gaetano Bentivegna': 'Partner',
+    'Maria Francesca Tucci': 'Associate',
+    'Shqipe Mahmuti': 'Associate',
+    'Francesco Cordova': 'Of Counsel',
+    'Rocco Pierri': 'Of Counsel',
+    'Giulia Savorelli': 'Office Manager'
+  };
+
+  function getNameFromLabel(label = '') {
+    const trimmed = label.trim();
+    return trimmed
+      .replace(/^Download vCard\s+/i, '')
+      .replace(/^Scarica vCard\s+/i, '')
+      .replace(/^Send email to\s+/i, '')
+      .replace(/^Invia email a\s+/i, '')
+      .trim();
+  }
+
+  function slugifyName(name = '') {
+    return name
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '') || 'contatto-lrlex';
+  }
+
+  function escapeVCard(value = '') {
+    return String(value)
+      .replace(/\\/g, '\\\\')
+      .replace(/\n/g, '\\n')
+      .replace(/,/g, '\\,')
+      .replace(/;/g, '\\;');
+  }
+
+  function buildVCard({ fullName, title, email }) {
+    return [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      `FN:${escapeVCard(fullName)}`,
+      `ORG:${escapeVCard(VCARD_ORG)}`,
+      `TITLE:${escapeVCard(title)}`,
+      `EMAIL;TYPE=INTERNET,WORK:${escapeVCard(email)}`,
+      `TEL;TYPE=WORK,VOICE:${escapeVCard(VCARD_TEL)}`,
+      `ADR;TYPE=WORK,PREF:${escapeVCard(VCARD_ADDRESS)}`,
+      `URL:${escapeVCard(VCARD_URL)}`,
+      'END:VCARD'
+    ].join('\n');
+  }
+
+  function inferEmailForVCard(link) {
+    const container = link.closest('.person__actions, .contact-info__links, .contact-info, .team-card, .founder__body');
+    const emailLink = container ? container.querySelector('[data-mail-user][data-mail-domain]') : null;
+    if (!emailLink) return '';
+    const user = emailLink.getAttribute('data-mail-user') || '';
+    const domain = emailLink.getAttribute('data-mail-domain') || '';
+    return user && domain ? `${user}@${domain}` : '';
+  }
+
+  function inferNameForVCard(link) {
+    const ariaLabel = link.getAttribute('aria-label') || '';
+    const nameFromLabel = getNameFromLabel(ariaLabel);
+    if (nameFromLabel) return nameFromLabel;
+    const personName = link.closest('.person, .founder__body, .page-hero__inner')?.querySelector('.person__name, .founder__name, .page-hero__title');
+    if (!personName) return '';
+    return personName.textContent.replace(/\s+/g, ' ').replace('Track Record di', '').replace('Track Record of', '').trim();
+  }
+
+  function inferTitleForVCard(link, fullName) {
+    const role = link.closest('.person, .founder__body')?.querySelector('.person__role');
+    if (role && role.textContent.trim()) return role.textContent.trim();
+    return titleByName[fullName] || 'Professionista';
+  }
+
+  document.querySelectorAll('a[download][href*="assets/vcards/"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const fullName = inferNameForVCard(link);
+      const email = inferEmailForVCard(link);
+      if (!fullName || !email) return;
+      event.preventDefault();
+      const title = inferTitleForVCard(link, fullName);
+      const vcard = buildVCard({ fullName, title, email });
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const downloadLink = document.createElement('a');
+      downloadLink.href = url;
+      downloadLink.download = `${slugifyName(fullName)}.vcf`;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
+      URL.revokeObjectURL(url);
+    });
+  });
+
   /* --- Mobile nav toggle --- */
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.querySelector('.nav__menu');

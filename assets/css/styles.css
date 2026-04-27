@@ -1409,6 +1409,80 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 }
 .practice-detail__nav a:hover, .practice-detail__nav a.active { color: var(--ink); border-bottom-color: var(--brass); }
 
+/* --- Professional contact info block --- */
+.contact-info-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+.contact-info {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: 1.15rem 1rem;
+}
+.contact-info--sticky {
+  position: sticky;
+  top: 92px;
+}
+.contact-info__label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  margin-bottom: 0.8rem;
+}
+.contact-info__links {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+.contact-info__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.contact-info__email::before {
+  content: "✉";
+  font-size: 0.85em;
+  line-height: 1;
+  color: var(--gray-600);
+}
+.contact-info__email:hover {
+  color: var(--brass-deep);
+}
+.contact-info__summary {
+  font-weight: 300;
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+.person__actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+}
+.team-card:hover .person__actions,
+.team-card:focus-within .person__actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+.person__action-link {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--gray-700);
+}
+.person__action-link:hover {
+  color: var(--ink);
+}
+
 /* --- Animations --- */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -1597,6 +1671,12 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .section-head { grid-template-columns: 1fr; gap: 1rem; }
   .practice-detail__grid { grid-template-columns: 1fr; }
   .practice-detail__sidebar { position: static; border-left: none; border-top: 2px solid var(--brass); padding-left: 0; padding-top: 1.5rem; }
+  .contact-info-layout { grid-template-columns: 1fr; }
+  .contact-info--sticky { position: static; }
+  .person__actions {
+    opacity: 1;
+    transform: none;
+  }
   .recognitions__item {
     grid-template-columns: 1fr;
     gap: 0.5rem 0.75rem;
@@ -1631,5 +1711,21 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .track-record-page .recognitions__item {
     padding: 1.2rem 0;
     gap: 0.45rem;
+  }
+}
+
+/* Fallback for mobile browsers rendering wider desktop viewports (e.g. iOS desktop mode). */
+@media (max-width: 1200px) {
+  .track-record-page .recognitions__item {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .track-record-page .recognitions__item > * {
+    grid-column: 1 / -1 !important;
+    width: 100%;
+    min-width: 0;
+  }
+  .track-record-page .recognitions__tag {
+    width: fit-content;
   }
 }
