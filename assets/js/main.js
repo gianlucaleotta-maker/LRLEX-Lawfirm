@@ -8,6 +8,13 @@
 (() => {
   'use strict';
 
+  // Safety: ensure Track Record pages always get the dedicated contrast styles,
+  // even if an older cached HTML version misses the body class.
+  const isTrackRecordPath = /track-record/i.test(window.location.pathname);
+  if (isTrackRecordPath && document.body) {
+    document.body.classList.add('track-record-page');
+  }
+
   /* --- Mobile nav toggle --- */
   const toggle = document.querySelector('.nav__toggle');
   const menu = document.querySelector('.nav__menu');

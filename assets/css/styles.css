@@ -756,10 +756,10 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 .track-record-page .recognitions__list { border-top: 1px solid var(--line); }
 .track-record-page .recognitions__item { border-bottom: 1px solid var(--line); }
 .track-record-page .recognitions__title,
-.track-record-page .recognitions__title strong { color: var(--ink); }
-.track-record-page .recognitions__source { color: var(--gray-700); }
+.track-record-page .recognitions__title strong { color: var(--ink) !important; }
+.track-record-page .recognitions__source { color: var(--gray-700) !important; }
 .track-record-page .recognitions__source a {
-  color: var(--ink);
+  color: var(--ink) !important;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -772,11 +772,17 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   font-size: 1.1rem;
   line-height: 1.3;
   white-space: normal;
-  color: var(--ink);
+  color: var(--ink) !important;
 }
 .track-record-page .recognitions__tag {
-  color: var(--ink);
-  border-color: var(--gray-600);
+  color: var(--ink) !important;
+  border-color: var(--gray-600) !important;
+}
+.track-record-page .recognitions__title,
+.track-record-page .recognitions__title *,
+.track-record-page .recognitions__source,
+.track-record-page .recognitions__source * {
+  opacity: 1 !important;
 }
 
 /* --- Memberships --- */
