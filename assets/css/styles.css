@@ -408,6 +408,12 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   margin-bottom: clamp(3rem, 6vw, 5rem);
   align-items: end;
 }
+.section-head--centered {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  justify-items: center;
+  text-align: center;
+}
 .section-head__num {
   font-family: var(--font-display);
   font-size: var(--text-sm);
@@ -652,6 +658,16 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 .news__card--featured .news__card-link { color: var(--brass); }
 
 .news__cta-row { display: flex; justify-content: center; margin-top: 3rem; }
+.subtle-link-wrap { margin-top: 0.9rem; text-align: center; }
+.subtle-link {
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
+}
+.subtle-link:hover { color: var(--ink); border-bottom-color: var(--brass); }
 
 /* --- Recognitions (home) --- */
 .recognitions {
@@ -715,6 +731,27 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   white-space: nowrap;
   align-self: start;
   justify-self: end;
+}
+/* Track record pages use light backgrounds; override recognitions palette. */
+.track-record-page .recognitions__list { border-top: 1px solid var(--line); }
+.track-record-page .recognitions__item { border-bottom: 1px solid var(--line); }
+.track-record-page .recognitions__title,
+.track-record-page .recognitions__title strong { color: var(--ink); }
+.track-record-page .recognitions__source { color: var(--gray-700); }
+.track-record-page .recognitions__source a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.track-record-page .recognitions__source a:hover { color: var(--brass-deep); }
+.track-record-page .recognitions__item {
+  grid-template-columns: minmax(10.5rem, 13rem) minmax(0, 2fr) minmax(0, 1.1fr) auto;
+  gap: 1.25rem 1.25rem;
+}
+.track-record-page .recognitions__year {
+  font-size: 1.1rem;
+  line-height: 1.3;
+  white-space: normal;
 }
 
 /* --- Memberships --- */

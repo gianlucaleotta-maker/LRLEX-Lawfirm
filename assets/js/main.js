@@ -115,9 +115,11 @@ window.LRLEX.loadNews = async function (containerId, opts = {}) {
 };
 
 function renderNewsCard(item, featured) {
+  const isEnglish = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
   const dateStr = formatDate(item.date);
   const cls = featured ? 'news__card news__card--featured' : 'news__card';
   const url = item.url && item.url.length ? item.url : '#';
+  const readLabel = isEnglish ? 'Read' : 'Leggi';
   return `
     <article class="${cls} reveal">
       <div class="news__card-meta">
@@ -126,14 +128,17 @@ function renderNewsCard(item, featured) {
       </div>
       <h3 class="news__card-title">${escapeHtml(item.title)}</h3>
       <p class="news__card-excerpt">${escapeHtml(item.excerpt)}</p>
-      <a class="news__card-link" href="${url}"${item.external ? ' target="_blank" rel="noopener"' : ''}>Leggi <span aria-hidden="true"></span></a>
+      <a class="news__card-link" href="${url}"${item.external ? ' target="_blank" rel="noopener"' : ''}>${readLabel} <span aria-hidden="true"></span></a>
     </article>
   `;
 }
 
 function formatDate(iso) {
   const d = new Date(iso);
-  const months = ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
+  const isEnglish = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
+  const months = isEnglish
+    ? ['January','February','March','April','May','June','July','August','September','October','November','December']
+    : ['Gennaio','Febbraio','Marzo','Aprile','Maggio','Giugno','Luglio','Agosto','Settembre','Ottobre','Novembre','Dicembre'];
   return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
