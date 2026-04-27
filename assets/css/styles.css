@@ -197,6 +197,10 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 .logo__img--icon {
   height: 48px;
 }
+.logo--home .logo__img {
+  height: 64px;
+  max-width: min(100%, 440px);
+}
 
 .theme-beige-header .site-header {
   background: rgba(245, 241, 232, 0.95);
@@ -1355,6 +1359,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .logo { min-width: 220px; }
   .logo__img { height: 44px; }
   .logo__img--icon { height: 40px; }
+  .logo--home .logo__img { height: 52px; }
   .nav__menu { display: none; }
   .nav__cta { display: none; }
   .nav__toggle {
@@ -1426,6 +1431,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .logo { min-width: 0; }
   .logo__img { height: 36px; }
   .logo__img--icon { height: 36px; }
+  .logo--home .logo__img { height: 42px; }
   .footer__brand-logo { height: 50px; }
   .footer__grid { grid-template-columns: 1fr; }
   .editorial__visual-quote { inset: 1.5rem; }

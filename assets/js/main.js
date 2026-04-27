@@ -54,7 +54,8 @@
   /* --- Smooth header background on scroll for hero pages --- */
   const header = document.querySelector('.site-header');
   const hero = document.querySelector('.hero, .page-hero');
-  if (header && hero) {
+  const hasBeigeHeader = document.body.classList.contains('theme-beige-header');
+  if (header && hero && !hasBeigeHeader) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
