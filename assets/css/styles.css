@@ -733,6 +733,13 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   justify-self: end;
 }
 /* Track record pages use light backgrounds; override recognitions palette. */
+.track-record-page .page-hero {
+  background: var(--paper);
+  color: var(--ink);
+}
+.track-record-page .page-hero::before {
+  opacity: 0.35;
+}
 .track-record-page .page-hero__breadcrumb,
 .track-record-page .page-hero__breadcrumb a {
   color: var(--gray-700);
@@ -765,6 +772,11 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   font-size: 1.1rem;
   line-height: 1.3;
   white-space: normal;
+  color: var(--ink);
+}
+.track-record-page .recognitions__tag {
+  color: var(--ink);
+  border-color: var(--gray-600);
 }
 
 /* --- Memberships --- */
@@ -1454,6 +1466,69 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .track-record-page .site-header .logo {
     color: var(--ink) !important;
   }
+  .track-record-page .page-hero {
+    padding: 5.5rem 0 2.4rem;
+  }
+  .track-record-page .page-hero__inner {
+    max-width: 100%;
+  }
+  .track-record-page .page-hero__breadcrumb {
+    display: block;
+    line-height: 1.5;
+    letter-spacing: 0.14em;
+    margin-bottom: 1.2rem;
+    white-space: normal;
+  }
+  .track-record-page .page-hero__title {
+    font-size: clamp(1.95rem, 9.2vw, 2.7rem);
+    line-height: 1.1;
+    margin-bottom: 0.9rem;
+  }
+  .track-record-page .page-hero__sub {
+    font-size: 1rem;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+  .track-record-page .section {
+    padding: 2.2rem 0;
+  }
+  .track-record-page .section-head__title {
+    font-size: clamp(1.55rem, 6.2vw, 2rem);
+  }
+  .track-record-page .recognitions__item:hover {
+    padding-left: 0;
+  }
+  .track-record-page .recognitions__year,
+  .track-record-page .recognitions__title,
+  .track-record-page .recognitions__title strong,
+  .track-record-page .recognitions__source,
+  .track-record-page .recognitions__tag {
+    color: var(--ink) !important;
+  }
+  .track-record-page .recognitions__tag {
+    border-color: var(--gray-600) !important;
+  }
+  .track-record-page .recognitions__year {
+    font-size: 1rem;
+  }
+  .track-record-page .recognitions__title {
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+  .track-record-page .recognitions__source {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .track-record-page .recognitions__source a {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+  .track-record-page .recognitions__tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.11em;
+    padding: 0.3rem 0.65rem;
+  }
 
   .marquee__grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
   .practices__grid { grid-template-columns: 1fr; }
@@ -1500,4 +1575,18 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   .footer__grid { grid-template-columns: 1fr; }
   .editorial__visual-quote { inset: 1.5rem; }
   .editorial__visual-quote-mark { font-size: 5rem; }
+  .track-record-page .page-hero {
+    padding: 5rem 0 2rem;
+  }
+  .track-record-page .page-hero__breadcrumb {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+  .track-record-page .page-hero__title {
+    font-size: clamp(1.75rem, 10.5vw, 2.35rem);
+  }
+  .track-record-page .recognitions__item {
+    padding: 1.2rem 0;
+    gap: 0.45rem;
+  }
 }
