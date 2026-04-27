@@ -1435,7 +1435,8 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 .contact-info__links {
   list-style: none;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.95rem;
+  margin-top: 0.35rem;
 }
 .contact-info__email {
   display: inline-flex;
@@ -1462,10 +1463,11 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1rem;
+  gap: 0.95rem 1.35rem;
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+  align-items: center;
 }
 .team-card:hover .person__actions,
 .team-card:focus-within .person__actions {
@@ -1473,11 +1475,14 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   transform: translateY(0);
 }
 .person__action-link {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 400;
   color: var(--gray-700);
+  padding: 0.15rem 0;
+  display: inline-flex;
+  align-items: center;
 }
 .person__action-link:hover {
   color: var(--ink);
