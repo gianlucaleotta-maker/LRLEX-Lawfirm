@@ -47,7 +47,7 @@
     'Giulia Savorelli': ['+39 3420355817']
   };
   const titleByName = {
-    'Gianluca Leotta': 'Founder / Partner',
+    'Gianluca Leotta': 'Founder / Managing Partner',
     'Debora Folisi': 'Partner',
     'Carla Talarico': 'Partner',
     'Gaetano Bentivegna': 'Partner',
@@ -255,7 +255,7 @@ window.LRLEX.loadNews = async function (containerId, opts = {}) {
       data.sort((a, b) => new Date(b.date) - new Date(a.date));
       data = data.slice(0, limit);
     } else {
-      data.sort((a, b) => (Number(!!b.featured) - Number(!!a.featured)) || (new Date(b.date) - new Date(a.date)));
+      data.sort((a, b) => new Date(b.date) - new Date(a.date));
     }
 
     container.innerHTML = data
