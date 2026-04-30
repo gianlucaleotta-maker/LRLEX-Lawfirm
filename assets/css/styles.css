@@ -1464,8 +1464,8 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.95rem 1.35rem;
-  opacity: 0;
-  transform: translateY(4px);
+  opacity: 1;
+  transform: none;
   transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
   align-items: center;
 }
