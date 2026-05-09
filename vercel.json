@@ -7,11 +7,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/avvocato-gianluca-leotta",
-      "destination": "/pages/team.html",
-      "permanent": true
-    },
-    {
       "source": "/avvocato-gianluca-leotta/",
       "destination": "/pages/team.html",
       "permanent": true
@@ -25,9 +20,26 @@
       "source": "/en/pages/aree-di-pratica.html",
       "destination": "/en/pages/practice-areas.html",
       "permanent": true
+    },
+    {
+      "source": "/:path(avvocato-[^/]+(?:\\.html)?)",
+      "destination": "/pages/team.html",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/category/:path*",
+      "destination": "/410"
     }
   ],
   "headers": [
+    {
+      "source": "/category/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [
