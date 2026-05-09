@@ -7,6 +7,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.lrlex.it" }],
+      "destination": "https://lrlex.it/:path*",
+      "permanent": true
+    },
+    {
       "source": "/avvocato-gianluca-leotta/",
       "destination": "/pages/team.html",
       "permanent": true
