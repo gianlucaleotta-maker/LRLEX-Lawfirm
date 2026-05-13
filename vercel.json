@@ -8,7 +8,7 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.lrlex.it" }],
+      "has": [{ "type": "host", "value":"www.lrlex.it"}],
       "destination": "https://lrlex.it/:path*",
       "permanent": true
     },
