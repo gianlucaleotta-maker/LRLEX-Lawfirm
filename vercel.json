@@ -3,11 +3,9 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": null,
-      "source": "/:path*",
-      "has": [{ "type": "host", "value":"www.lrlex.it"}],
-      "destination": "https://lrlex.it/:path*",
-      "permanent": true
-    },
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
       "source": "/avvocato-gianluca-leotta/",
       "destination": "/pages/team.html",
