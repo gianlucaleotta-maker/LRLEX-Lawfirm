@@ -1,5 +1,15 @@
 [
   {
+    "id": "genenta-sophia-high-tech-golden-power",
+    "date": "2026-05-14",
+    "category": "M&A",
+    "title": "Sòphia High Tech / Genenta Science.",
+    "excerpt": "Assistenza ai soci di Sòphia High Tech nell'accordo per l'ingresso in più tranches di Genenta Science (Nasdaq: GNTA, in trasformazione in Saentra Forge) nel capitale della società, in perimetro Golden Power.",
+    "url": "https://legalcommunity.it/lexia-e-lr-lex-nellaccordo-di-genenta-e-sophia-high-tech/",
+    "external": true,
+    "featured": true
+  },
+  {
     "id": "dipres-aldo-martelli-ramo-azienda",
     "date": "2026-04-30",
     "category": "M&A",
@@ -17,7 +27,7 @@
     "excerpt": "Lo studio ha assistito Audiencerate nel percorso legale e negoziale che ha portato alla partnership con Google e all'ottenimento della qualifica Customer Match Upload Partner, a valle del percorso avviato nel dicembre 2025.",
     "url": "https://legalcommunity.it/lr-lex-affianca-audiencerate-nella-strutturazione-della-partnership-con-google/",
     "external": true,
-    "featured": true
+    "featured": false
   },
   {
     "id": "audiencerate-microsoft-ntplus-sole24",
