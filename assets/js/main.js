@@ -283,7 +283,7 @@ function renderNewsCard(item, featured) {
         <time class="news__card-date" datetime="${item.date}">${dateStr}</time>
       </div>
       <h3 class="news__card-title">${escapeHtml(item.title)}</h3>
-      <p class="news__card-excerpt">${escapeHtml(item.excerpt)}</p>
+      <p class="news__card-excerpt">${item.excerptHtml ? item.excerptHtml : escapeHtml(item.excerpt)}</p>
       <a class="news__card-link" href="${url}"${item.external ? ' target="_blank" rel="noopener"' : ''}>${readLabel} <span aria-hidden="true"></span></a>
     </article>
   `;
