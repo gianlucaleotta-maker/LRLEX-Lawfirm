@@ -238,6 +238,22 @@ function resolveNewsEndpoint() {
   return (inSubdir ? '../' : '') + configEp;
 }
 
+/** Full news page: fixed order for 2026 deal trio (Genenta → Postel → Dipres), then others by date. */
+function sortNewsFullPage(items) {
+  const pinnedIds = [
+    'genenta-sophia-high-tech-golden-power',
+    'audiencerate-microsoft-postel-sme-platform',
+    'dipres-aldo-martelli-ramo-azienda',
+    'dipres-aldo-martelli-business-unit-acquisition',
+  ];
+  const pinnedSet = new Set(pinnedIds);
+  const byId = new Map(items.map((x) => [x.id, x]));
+  const pinned = pinnedIds.map((id) => byId.get(id)).filter(Boolean);
+  const rest = items.filter((x) => !pinnedSet.has(x.id));
+  rest.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return [...pinned, ...rest];
+}
+
 window.LRLEX.loadNews = async function (containerId, opts = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -255,7 +271,7 @@ window.LRLEX.loadNews = async function (containerId, opts = {}) {
       data.sort((a, b) => new Date(b.date) - new Date(a.date));
       data = data.slice(0, limit);
     } else {
-      data.sort((a, b) => new Date(b.date) - new Date(a.date));
+      data = sortNewsFullPage(data);
     }
 
     container.innerHTML = data
