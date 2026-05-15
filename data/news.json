@@ -1,15 +1,5 @@
 [
   {
-    "id": "audiencerate-microsoft-postel-sme-platform",
-    "date": "2026-05-16",
-    "category": "Deal Announcement",
-    "title": "LR LEX assiste Audiencerate nell'accordo con Microsoft e Postel",
-    "excerptHtml": "LR LEX ha assistito Audiencerate nell'accordo siglato con Microsoft e Postel (Gruppo Poste Italiane) per la distribuzione alle PMI italiane di una piattaforma integrata di data intelligence, marketing omnicanale e AI applicata, curando gli aspetti legali e negoziali del deal, come riportato da <a href=\"https://finance.yahoo.com/sectors/technology/articles/microsoft-postel-innovative-data-ai-050000728.html\" class=\"subtle-link\" target=\"_blank\" rel=\"noopener\">Yahoo Finance</a> e dai <a href=\"https://news.microsoft.com/source/emea/2026/04/microsoft-italia-e-postel-nuova-soluzione-basata-su-dati-e-ai-per-ottimizzare-il-rapporto-delle-pmi-italiane-con-i-propri-clienti/\" class=\"subtle-link\" target=\"_blank\" rel=\"noopener\">canali ufficiali Microsoft</a>.",
-    "url": "https://finance.yahoo.com/sectors/technology/articles/microsoft-postel-innovative-data-ai-050000728.html",
-    "external": true,
-    "featured": false
-  },
-  {
     "id": "genenta-sophia-high-tech-golden-power",
     "date": "2026-05-14",
     "category": "M&A · Aerospace & Defense",
@@ -18,6 +8,16 @@
     "url": "https://legalcommunity.it/lexia-e-lr-lex-nellaccordo-di-genenta-e-sophia-high-tech/",
     "external": true,
     "featured": true
+  },
+  {
+    "id": "audiencerate-microsoft-postel-sme-platform",
+    "date": "2026-04-28",
+    "category": "Deal Announcement",
+    "title": "LR LEX assiste Audiencerate nell'accordo con Microsoft e Postel",
+    "excerptHtml": "LR LEX ha assistito Audiencerate nell'accordo siglato con Microsoft e Postel (Gruppo Poste Italiane) per la distribuzione alle PMI italiane di una piattaforma integrata di data intelligence, marketing omnicanale e AI applicata, curando gli aspetti legali e negoziali del deal, come riportato da <a href=\"https://finance.yahoo.com/sectors/technology/articles/microsoft-postel-innovative-data-ai-050000728.html\" class=\"subtle-link\" target=\"_blank\" rel=\"noopener\">Yahoo Finance</a> e dai <a href=\"https://news.microsoft.com/source/emea/2026/04/microsoft-italia-e-postel-nuova-soluzione-basata-su-dati-e-ai-per-ottimizzare-il-rapporto-delle-pmi-italiane-con-i-propri-clienti/\" class=\"subtle-link\" target=\"_blank\" rel=\"noopener\">canali ufficiali Microsoft</a>.",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/microsoft-postel-innovative-data-ai-050000728.html",
+    "external": true,
+    "featured": false
   },
   {
     "id": "dipres-aldo-martelli-ramo-azienda",
