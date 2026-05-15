@@ -238,17 +238,23 @@ function resolveNewsEndpoint() {
   return (inSubdir ? '../' : '') + configEp;
 }
 
-/** Full news page: fixed order for 2026 deal trio (Genenta → Postel → Dipres), then others by date. */
-function sortNewsFullPage(items) {
-  const pinnedIds = [
-    'genenta-sophia-high-tech-golden-power',
-    'audiencerate-microsoft-postel-sme-platform',
-    'dipres-aldo-martelli-ramo-azienda',
-    'dipres-aldo-martelli-business-unit-acquisition',
-  ];
-  const pinnedSet = new Set(pinnedIds);
+/*
+  CONTESTO / editorial stack — prime voci in evidenza:
+  assistenza soci Sòphia High Tech vs Genenta (Nasdaq GNTA → Saentra Forge), Golden Power,
+  Aerospace & Defense; accordo Audiencerate / Microsoft / Postel (PMI, dati & AI); Dipres / Aldo Martelli (M&A).
+  Ordine fisso in lista News completa e (opzionale) griglia home: Genenta → Postel → Dipres (poi il resto per data).
+*/
+const NEWS_EDITORIAL_DEALS_ORDER = [
+  'genenta-sophia-high-tech-golden-power',
+  'audiencerate-microsoft-postel-sme-platform',
+  'dipres-aldo-martelli-ramo-azienda',
+  'dipres-aldo-martelli-business-unit-acquisition',
+];
+
+function applyEditorialNewsOrder(items) {
+  const pinnedSet = new Set(NEWS_EDITORIAL_DEALS_ORDER);
   const byId = new Map(items.map((x) => [x.id, x]));
-  const pinned = pinnedIds.map((id) => byId.get(id)).filter(Boolean);
+  const pinned = NEWS_EDITORIAL_DEALS_ORDER.map((id) => byId.get(id)).filter(Boolean);
   const rest = items.filter((x) => !pinnedSet.has(x.id));
   rest.sort((a, b) => new Date(b.date) - new Date(a.date));
   return [...pinned, ...rest];
@@ -257,7 +263,7 @@ function sortNewsFullPage(items) {
 window.LRLEX.loadNews = async function (containerId, opts = {}) {
   const container = document.getElementById(containerId);
   if (!container) return;
-  const { limit = null, featuredFirst = true } = opts;
+  const { limit = null, featuredFirst = true, editorialDealOrder = false } = opts;
   const endpoint = resolveNewsEndpoint();
   const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
 
@@ -268,10 +274,14 @@ window.LRLEX.loadNews = async function (containerId, opts = {}) {
     if (!data || !data.length) throw new Error('No items');
 
     if (limit) {
-      data.sort((a, b) => new Date(b.date) - new Date(a.date));
-      data = data.slice(0, limit);
+      if (editorialDealOrder) {
+        data = applyEditorialNewsOrder(data).slice(0, limit);
+      } else {
+        data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        data = data.slice(0, limit);
+      }
     } else {
-      data = sortNewsFullPage(data);
+      data = applyEditorialNewsOrder(data);
     }
 
     container.innerHTML = data
