@@ -226,6 +226,7 @@ window.LRLEX = window.LRLEX || {};
 window.LRLEX.config = {
   // Path from site root (works on /, /en/, /pages/…, /en/pages/… without double ../ bugs)
   newsEndpoint: '/data/news.json',
+  pressEndpoint: '/data/press.json',
   // For the homepage we show featured + 2 latest. For news.html we show all.
   homepageLimit: 3
 };
@@ -331,4 +332,78 @@ function escapeHtml(str = '') {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+/* ================================================================
+   Press loader — drives rassegna stampa from data/press.json
+   ================================================================ */
+
+function resolvePressEndpoint() {
+  const configEp = (window.LRLEX.config && window.LRLEX.config.pressEndpoint) || '/data/press.json';
+  if (configEp.startsWith('http') || configEp.startsWith('/')) return configEp;
+  if (configEp.indexOf('..') !== -1) return configEp;
+  const inSubdir = window.location.pathname.includes('/pages/');
+  return (inSubdir ? '../' : '') + configEp;
+}
+
+window.LRLEX.loadPress = async function (containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const endpoint = resolvePressEndpoint();
+  const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
+
+  try {
+    const res = await fetch(endpoint, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Fetch failed');
+    let data = await res.json();
+    if (!data || !data.length) throw new Error('No items');
+
+    data.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    container.innerHTML = data.map((item) => renderPressCard(item)).join('');
+    if (window.LRLEX.observeReveals) window.LRLEX.observeReveals(container);
+  } catch (err) {
+    console.warn('Press loading failed', err);
+    container.innerHTML = isEn
+      ? '<p class="press__error" role="alert" style="color: var(--gray-700); max-width: 36rem; line-height:1.6;">We could not load the press archive. Visit <strong>lrlex.it</strong> or check <a class="subtle-link" href="/data/press-en.json">/data/press-en.json</a>.</p>'
+      : '<p class="press__error" role="alert" style="color: var(--gray-700); max-width: 36rem; line-height:1.6;">Non è stato possibile caricare la rassegna. Visita <strong>lrlex.it</strong> oppure verifica <a class="subtle-link" href="/data/press.json">/data/press.json</a>.</p>';
+  }
+};
+
+function renderPressCard(item) {
+  const isEnglish = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
+  const dateStr = formatDate(item.date);
+  const url = item.url && item.url.length ? item.url : '#';
+  const readLabel = isEnglish ? 'Read article' : 'Leggi articolo';
+  const externalAttrs = item.external ? ' target="_blank" rel="noopener"' : '';
+  const categoryLabel = item.categoryLabel || item.publication || 'Press';
+  const imageSrc = item.image || '';
+  const imageAlt = escapeHtml(item.imageAlt || item.title || '');
+
+  const imageBlock = imageSrc
+    ? `<a class="press__card-image-link" href="${url}"${externalAttrs} tabindex="-1" aria-hidden="true">
+        <img class="press__card-image" src="${imageSrc}" alt="${imageAlt}" loading="lazy" decoding="async">
+      </a>`
+    : '';
+
+  const tagBlock = item.tag
+    ? `<span class="press__card-tag">${escapeHtml(item.tag)}</span>`
+    : '';
+
+  return `
+    <article class="press__card reveal">
+      ${imageBlock}
+      <div class="press__card-body">
+        <div class="press__card-meta">
+          <span class="press__card-pub">${escapeHtml(item.publication || categoryLabel)}</span>
+          <time class="press__card-date" datetime="${item.date}">${dateStr}</time>
+        </div>
+        <h3 class="press__card-title">
+          <a href="${url}"${externalAttrs}>${escapeHtml(item.title)}</a>
+        </h3>
+        ${tagBlock}
+        <a class="press__card-link" href="${url}"${externalAttrs}>${readLabel} <span aria-hidden="true"></span></a>
+      </div>
+    </article>
+  `;
 }

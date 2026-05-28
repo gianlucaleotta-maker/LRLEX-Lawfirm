@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <link rel="apple-touch-icon" href="../assets/img/favicon.png">
-  <title>News &amp; Insights — LR LEX</title>
-  <meta name="description" content="Operazioni recenti, riconoscimenti, pubblicazioni e insight giuridici dello studio LR LEX.">
-  <link rel="canonical" href="https://lrlex.it/pages/news.html">
-  <link rel="alternate" hreflang="it" href="https://lrlex.it/pages/news.html">
-  <link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/news.html">
-  <link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/news.html">
+  <title>Rassegna Stampa — LR LEX</title>
+  <meta name="description" content="Rassegna stampa storica di LR LEX: articoli, clipping e coperture editoriali su operazioni, partnership e attività dello studio.">
+  <link rel="canonical" href="https://lrlex.it/pages/rassegna-stampa.html">
+  <link rel="alternate" hreflang="it" href="https://lrlex.it/pages/rassegna-stampa.html">
+  <link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/press-coverage.html">
+  <link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/rassegna-stampa.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,9 +25,9 @@
         <li><a href="../index.html" class="nav__link">Studio</a></li>
         <li><a href="aree-di-pratica.html" class="nav__link">Aree di Pratica</a></li>
         <li><a href="team.html" class="nav__link">Professionisti</a></li>
-        <li><a href="news.html" class="nav__link active">News &amp; Insights</a></li>
+        <li><a href="news.html" class="nav__link">News &amp; Insights</a></li>
         <li><a href="contatti.html" class="nav__link">Contatti</a></li>
-        <li><a href="/en/pages/news.html" class="nav__link">EN</a></li>
+        <li><a href="/en/pages/press-coverage.html" class="nav__link">EN</a></li>
       </ul>
       <a href="contatti.html" class="nav__cta">Contatti →</a>
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -39,27 +39,29 @@
       <p class="page-hero__breadcrumb">
         <a href="../index.html">LR LEX</a>
         <span class="page-hero__breadcrumb-sep">/</span>
-        News &amp; Insights
+        <a href="news.html">News &amp; Insights</a>
+        <span class="page-hero__breadcrumb-sep">/</span>
+        Rassegna Stampa
       </p>
-      <h1 class="page-hero__title">News &amp; <em>Insights</em></h1>
+      <h1 class="page-hero__title">Rassegna <em>Stampa</em></h1>
       <p class="page-hero__sub">
-        Operazioni recenti, riconoscimenti, pubblicazioni e insight giuridici di LR LEX.
-        Aggiornamenti sui mandati, sulle classifiche e sui contributi dei nostri professionisti.
+        Archivio di articoli e clipping storici su operazioni, partnership e attività dello studio,
+        tratto da testate nazionali e internazionali.
       </p>
     </div>
   </section>
 
-  <section class="section news">
+  <section class="section press">
     <div class="container">
-      <div id="news-grid-full" class="news__grid" aria-live="polite">
-        <p class="reveal" style="color: var(--gray-700); margin: 0;">Caricamento elenco…</p>
+      <div id="press-grid" class="press__grid" aria-live="polite">
+        <p class="reveal" style="color: var(--gray-700); margin: 0;">Caricamento rassegna…</p>
       </div>
     </div>
   </section>
 
   <section class="section" style="background: var(--paper);">
     <div class="container" style="text-align: center; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-      <a href="rassegna-stampa.html" class="btn btn--dark">Rassegna stampa <span class="btn__arrow">→</span></a>
+      <a href="news.html" class="btn btn--dark">News &amp; Insights <span class="btn__arrow">→</span></a>
       <a href="track-record.html" class="btn btn--dark">Track record e pubblicazioni <span class="btn__arrow">→</span></a>
     </div>
   </section>
@@ -113,8 +115,8 @@
   <script src="../assets/js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      window.LRLEX.config.newsEndpoint = '/data/news.json';
-      window.LRLEX.loadNews('news-grid-full', { limit: null, featuredFirst: true });
+      window.LRLEX.config.pressEndpoint = '/data/press.json';
+      window.LRLEX.loadPress('press-grid');
     });
   </script>
   <script type="text/javascript" src="https://embeds.iubenda.com/widgets/00dc8dd1-aa97-4a5b-afc3-b524e08005de.js"></script>
