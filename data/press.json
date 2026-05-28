@@ -1,0 +1,98 @@
+[
+  {
+    "id": "panorama-uomo-compra-rete-2000",
+    "date": "2000-11-09",
+    "publication": "Panorama",
+    "title": "L'uomo che compra la Rete",
+    "image": "/assets/img/press/2000-11-09-panorama.jpg",
+    "imageAlt": "Articolo di Panorama, firma Marco Cobianchi, sul progetto di aggregazione degli Internet provider italiani",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "New Economy · Internet · Imprenditoria"
+  },
+  {
+    "id": "il-mondo-provider-uniti-2001",
+    "date": "2001-01-01",
+    "publication": "Il Mondo",
+    "title": "Provider di provincia uniti contro i big nazionali",
+    "image": "/assets/img/press/2001-il-mondo-1.jpg",
+    "imageAlt": "Articolo de Il Mondo sul lancio di Club Nautilus",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "New Economy · Internet"
+  },
+  {
+    "id": "linea-edp-isp-2001",
+    "date": "2001-06-01",
+    "publication": "Linea EDP",
+    "title": "L'aggregazione degli ISP italiani",
+    "image": "/assets/img/press/2001-linea-edp.jpg",
+    "imageAlt": "Servizio di Linea EDP su Club Nautilus e il consolidamento degli Internet service provider italiani",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "ICT · Internet · Imprenditoria"
+  },
+  {
+    "id": "office-automation-isp-nautilus-2001",
+    "date": "2001-12-01",
+    "publication": "Office Automation",
+    "title": "ISP, il successo viaggia sul Nautilus",
+    "image": "/assets/img/press/2001-12-office-automation.jpg",
+    "imageAlt": "Servizio di Office Automation su Club Nautilus e l'aggregazione degli ISP italiani",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "ICT · Internet · Imprenditoria"
+  },
+  {
+    "id": "capital-protagonisti-new-economy-2002",
+    "date": "2002-01-31",
+    "publication": "Capital",
+    "title": "I protagonisti della new economy italiana",
+    "image": "/assets/img/press/2002-01-31-capital.jpg",
+    "imageAlt": "Rassegna di Capital sui protagonisti della new economy italiana",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "New Economy · Internet"
+  },
+  {
+    "id": "il-mondo-wireless-club-2002",
+    "date": "2002-01-01",
+    "publication": "Il Mondo",
+    "title": "È il momento del wireless Club",
+    "image": "/assets/img/press/2002-il-mondo-2.jpg",
+    "imageAlt": "Articolo de Il Mondo sui piani wireless del Club Nautilus con Cisco",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "Wireless · Internet · Tecnologia"
+  },
+  {
+    "id": "mediakey-audiencerate-acquisizione-2012",
+    "date": "2012-02-07",
+    "publication": "Media Key",
+    "title": "L'acquisizione di AudienceRate",
+    "image": "/assets/img/press/2012-02-07-mediakey-audiencerate.jpg",
+    "imageAlt": "Media Key annuncia l'acquisizione di AudienceRate, società inglese di Audience Data Management",
+    "url": "#",
+    "external": false,
+    "categoria": "ma-avvocatura",
+    "tag": "M&A · AdTech · Data Management"
+  },
+  {
+    "id": "microsoft-audiencerate-partner-2024",
+    "date": "2024-01-10",
+    "publication": "Microsoft News Center Italy",
+    "title": "Audiencerate entra nell'ecosistema dei partner Microsoft",
+    "image": "/assets/img/press/2024-01-10-microsoft-audiencerate.jpg",
+    "imageAlt": "Microsoft News Center sull'ingresso di Audiencerate nell'ecosistema partner Microsoft",
+    "url": "https://news.microsoft.com/it-it/2024/01/10/audiencerate-entra-a-far-parte-dellecosistema-dei-partner-microsoft-per-esplorare-nuovi-mercati-e-consolidare-la-sua-presenza-a-livello-globale/",
+    "external": true,
+    "categoria": "ma-avvocatura",
+    "tag": "Tech · Partnership · MarTech"
+  }
+]
