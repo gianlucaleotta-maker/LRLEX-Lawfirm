@@ -1873,3 +1873,183 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
     width: fit-content;
   }
 }
+/* ============================================================
+   PRESS CARDS — Press review on Gianluca Leotta story page
+   ============================================================ */
+.press__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+.press__card {
+  background: #fff;
+  border: 1px solid var(--line-light, rgba(0,0,0,0.08));
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--ease-out, ease-out), box-shadow 0.3s var(--ease-out, ease-out);
+}
+.press__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(15, 20, 25, 0.08);
+}
+.press__card-image-link {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--cream, #f5f1e8);
+  cursor: zoom-in;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.press__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s var(--ease-out, ease-out);
+}
+.press__card-image-link:hover .press__card-image {
+  transform: scale(1.03);
+}
+.press__card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.press__card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.press__card-pub {
+  color: var(--brass, #8b6f47);
+  font-weight: 600;
+}
+.press__card-date {
+  color: var(--gray-500, #888);
+}
+.press__card-title {
+  font-family: var(--font-serif, "Fraunces", Georgia, serif);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 0 0 14px;
+  color: var(--ink, #1a1a1a);
+}
+.press__card-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: var(--teal, #2e7d8a);
+  margin-bottom: 18px;
+}
+.press__card-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.press__card-link,
+.press__card-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+.press__card-link {
+  color: var(--ink, #1a1a1a);
+  font-weight: 600;
+}
+.press__card-link:hover { color: var(--brass, #8b6f47); }
+.press__card-download {
+  color: var(--gray-500, #888);
+  font-size: 0.78rem;
+}
+.press__card-download:hover { color: var(--teal, #2e7d8a); }
+.press__error {
+  text-align: center;
+  color: var(--gray-500, #888);
+  font-style: italic;
+  padding: 48px 0;
+}
+
+/* ============================================================
+   PRESS LIGHTBOX — Full-screen image viewer
+   ============================================================ */
+.press-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 18, 24, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+.press-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.press-lightbox__close {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 2.2rem;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+.press-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.press-lightbox__inner {
+  max-width: min(1200px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.press-lightbox__img {
+  max-width: 100%;
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.press-lightbox__caption {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0;
+  max-width: 800px;
+}
+@media (max-width: 640px) {
+  .press__grid { grid-template-columns: 1fr; gap: 24px; }
+  .press-lightbox { padding: 16px; }
+  .press-lightbox__close { top: 12px; right: 16px; }
+}
