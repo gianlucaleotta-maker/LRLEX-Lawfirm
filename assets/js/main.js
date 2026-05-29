@@ -351,43 +351,62 @@ window.LRLEX.loadPress = async function (containerId) {
   if (!container) return;
   const endpoint = resolvePressEndpoint();
   const isEn = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
-
   try {
     const res = await fetch(endpoint, { cache: 'no-cache' });
     if (!res.ok) throw new Error('Fetch failed');
     let data = await res.json();
     if (!data || !data.length) throw new Error('No items');
-
-    data.sort((a, b) => new Date(b.date) - new Date(a.date));
-
+    // Cronologico crescente: dal più vecchio al più recente
+    data.sort((a, b) => new Date(a.date) - new Date(b.date));
     container.innerHTML = data.map((item) => renderPressCard(item)).join('');
     if (window.LRLEX.observeReveals) window.LRLEX.observeReveals(container);
+    // Inizializza il lightbox sulle card appena renderizzate
+    initPressLightbox(container);
   } catch (err) {
     console.warn('Press loading failed', err);
     container.innerHTML = isEn
-      ? '<p class="press__error" role="alert" style="color: var(--gray-700); max-width: 36rem; line-height:1.6;">We could not load the press archive. Visit <strong>lrlex.it</strong> or check <a class="subtle-link" href="/data/press-en.json">/data/press-en.json</a>.</p>'
-      : '<p class="press__error" role="alert" style="color: var(--gray-700); max-width: 36rem; line-height:1.6;">Non è stato possibile caricare la rassegna. Visita <strong>lrlex.it</strong> oppure verifica <a class="subtle-link" href="/data/press.json">/data/press.json</a>.</p>';
+      ? '<p class="press__error">We could not load the press archive. Please try again later.</p>'
+      : '<p class="press__error">Non è stato possibile caricare la rassegna stampa. Riprova più tardi.</p>';
   }
 };
 
 function renderPressCard(item) {
   const isEnglish = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
   const dateStr = formatDate(item.date);
-  const url = item.url && item.url.length ? item.url : '#';
-  const readLabel = isEnglish ? 'Read article' : 'Leggi articolo';
-  const externalAttrs = item.external ? ' target="_blank" rel="noopener"' : '';
-  const categoryLabel = item.categoryLabel || item.publication || 'Press';
-  const imageSrc = item.image || '';
-  const imageAlt = escapeHtml(item.imageAlt || item.title || '');
+  const hasExternalUrl = item.url && item.url !== '#' && item.external;
+  const hasImage = item.image && item.image.length;
+  const readLabel = hasExternalUrl
+    ? (isEnglish ? 'Read the original article' : 'Leggi articolo originale')
+    : (isEnglish ? 'View the clipping' : 'Vedi il ritaglio');
+  const downloadLabel = isEnglish ? 'Download original' : 'Scarica originale';
 
-  const imageBlock = imageSrc
-    ? `<a class="press__card-image-link" href="${url}"${externalAttrs} tabindex="-1" aria-hidden="true">
-        <img class="press__card-image" src="${imageSrc}" alt="${imageAlt}" loading="lazy" decoding="async">
-      </a>`
+  // Trigger del lightbox: solo se c'è immagine
+  const lightboxAttrs = hasImage
+    ? ` data-lightbox-src="${escapeHtml(item.image)}" data-lightbox-caption="${escapeHtml(item.publication + ' — ' + item.title)}"`
     : '';
 
+  // Anteprima immagine (cliccabile per lightbox)
+  const imageBlock = hasImage
+    ? `<button type="button" class="press__card-image-link" aria-label="${escapeHtml(item.imageAlt || item.title)}"${lightboxAttrs}>
+        <img class="press__card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" decoding="async">
+      </button>`
+    : '';
+
+  // Tag (opzionale)
   const tagBlock = item.tag
     ? `<span class="press__card-tag">${escapeHtml(item.tag)}</span>`
+    : '';
+
+  // Link "Leggi": va all'URL esterno se c'è, altrimenti apre il lightbox
+  const readLink = hasExternalUrl
+    ? `<a class="press__card-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${readLabel} <span aria-hidden="true">→</span></a>`
+    : (hasImage
+        ? `<button type="button" class="press__card-link press__card-link--btn"${lightboxAttrs}>${readLabel} <span aria-hidden="true">→</span></button>`
+        : '');
+
+  // Link "Scarica originale": appare solo per articoli storici (non esterni) con immagine
+  const downloadLink = (!hasExternalUrl && hasImage)
+    ? `<a class="press__card-download" href="${escapeHtml(item.image)}" target="_blank" rel="noopener">${downloadLabel} <span aria-hidden="true">↓</span></a>`
     : '';
 
   return `
@@ -395,15 +414,86 @@ function renderPressCard(item) {
       ${imageBlock}
       <div class="press__card-body">
         <div class="press__card-meta">
-          <span class="press__card-pub">${escapeHtml(item.publication || categoryLabel)}</span>
-          <time class="press__card-date" datetime="${item.date}">${dateStr}</time>
+          <span class="press__card-pub">${escapeHtml(item.publication || 'Press')}</span>
+          <time class="press__card-date" datetime="${escapeHtml(item.date)}">${dateStr}</time>
         </div>
-        <h3 class="press__card-title">
-          <a href="${url}"${externalAttrs}>${escapeHtml(item.title)}</a>
-        </h3>
+        <h3 class="press__card-title">${escapeHtml(item.title)}</h3>
         ${tagBlock}
-        <a class="press__card-link" href="${url}"${externalAttrs}>${readLabel} <span aria-hidden="true"></span></a>
+        <div class="press__card-actions">
+          ${readLink}
+          ${downloadLink}
+        </div>
       </div>
     </article>
   `;
+}
+
+function initPressLightbox(container) {
+  // Crea il lightbox una volta sola (se non già presente)
+  let lightbox = document.getElementById('press-lightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'press-lightbox';
+    lightbox.className = 'press-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.innerHTML = `
+      <button type="button" class="press-lightbox__close" aria-label="Chiudi">×</button>
+      <div class="press-lightbox__inner">
+        <img class="press-lightbox__img" alt="">
+        <p class="press-lightbox__caption"></p>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    // Chiusura: clic su sfondo, clic su X, tasto ESC
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('press-lightbox__close')) {
+        closePressLightbox();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closePressLightbox();
+      }
+    });
+  }
+
+  // Aggancia i listener alle card del container
+  const triggers = container.querySelectorAll('[data-lightbox-src]');
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const src = trigger.getAttribute('data-lightbox-src');
+      const caption = trigger.getAttribute('data-lightbox-caption') || '';
+      openPressLightbox(src, caption);
+    });
+  });
+}
+
+function openPressLightbox(src, caption) {
+  const lightbox = document.getElementById('press-lightbox');
+  if (!lightbox) return;
+  const img = lightbox.querySelector('.press-lightbox__img');
+  const cap = lightbox.querySelector('.press-lightbox__caption');
+  img.src = src;
+  img.alt = caption;
+  cap.textContent = caption;
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePressLightbox() {
+  const lightbox = document.getElementById('press-lightbox');
+  if (!lightbox) return;
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  // Pulisce l'immagine per evitare flash al prossimo apri
+  setTimeout(() => {
+    const img = lightbox.querySelector('.press-lightbox__img');
+    if (img && !lightbox.classList.contains('is-open')) img.src = '';
+  }, 300);
 }
