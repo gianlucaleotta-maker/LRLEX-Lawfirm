@@ -24,6 +24,18 @@
     "tag": "New Economy · Internet"
   },
   {
+    "id": "repubblica-affari-finanza-web-people-2001",
+    "date": "2001-01-22",
+    "publication": "la Repubblica Affari & Finanza",
+    "title": "Web-people",
+    "image": "/assets/img/press/2001-01-22-repubblica-affari-finanza.jpg",
+    "imageAlt": "la Repubblica Affari & Finanza feature by Irene Maria Scalise on Gianluca Leotta and the consolidation of Italian ISPs",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "New Economy · Internet · Entrepreneurship"
+  },
+  {
     "id": "linea-edp-isp-2001",
     "date": "2001-06-01",
     "publication": "Linea EDP",
@@ -34,6 +46,18 @@
     "external": false,
     "categoria": "imprenditoria-vc",
     "tag": "ICT · Internet · Entrepreneurship"
+  },
+  {
+    "id": "network-news-micanet-2001",
+    "date": "2001-10-20",
+    "publication": "Network News",
+    "title": "Club Nautilus acquires Micanet",
+    "image": "/assets/img/press/2001-10-20-network-news-micanet.jpg",
+    "imageAlt": "Network News article on the acquisition of Micanet by Club Nautilus",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "ICT · M&A · Internet"
   },
   {
     "id": "office-automation-isp-nautilus-2001",
@@ -48,16 +72,28 @@
     "tag": "ICT · Internet · Entrepreneurship"
   },
   {
-    "id": "capital-protagonisti-new-economy-2002",
-    "date": "2002-01-31",
-    "publication": "Capital",
-    "title": "The protagonists of the Italian new economy",
-    "image": "/assets/img/press/2002-01-31-capital.jpg",
-    "imageAlt": "Capital roundup of the key figures of the Italian new economy",
+    "id": "italia-oggi-club-nautilus-2001",
+    "date": "2001-12-10",
+    "publication": "ItaliaOggi",
+    "title": "Gianluca Leotta founds Club Nautilus",
+    "image": "/assets/img/press/2001-12-10-italia-oggi.jpg",
+    "imageAlt": "ItaliaOggi article on Gianluca Leotta and the founding of Club Nautilus",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "New Economy · Internet"
+    "tag": "Telco · New Economy · Entrepreneurship"
+  },
+  {
+    "id": "capital-magnifici-100-2002",
+    "date": "2002-01-31",
+    "publication": "Capital",
+    "title": "The Magnificent 100, Italy's digital leadership class",
+    "image": "/assets/img/press/2002-01-31-capital.jpg",
+    "imageAlt": "Capital roundup of the 100 protagonists of Italy's digital leadership class, including Gianluca Leotta",
+    "url": "#",
+    "external": false,
+    "categoria": "imprenditoria-vc",
+    "tag": "New Economy · Internet · Leadership"
   },
   {
     "id": "il-mondo-wireless-club-2002",
@@ -80,8 +116,20 @@
     "imageAlt": "Media Key reports the acquisition of AudienceRate, a UK Audience Data Management company",
     "url": "#",
     "external": false,
-    "categoria": "ma-avvocatura",
+    "categoria": "imprenditoria-vc",
     "tag": "M&A · AdTech · Data Management"
+  },
+  {
+    "id": "milano-finanza-fondo-valorizzazione-2013",
+    "date": "2013-06-19",
+    "publication": "Milano Finanza",
+    "title": "The launch of the Fondo Valorizzazione Imprese",
+    "image": "/assets/img/press/2013-06-19-milano-finanza.jpg",
+    "imageAlt": "Milano Finanza on the launch of the Fondo Valorizzazione Imprese, promoted with ABI and the Italian banking system",
+    "url": "https://www.milanofinanza.it/news/abi-al-via-fondo-di-valorizzazione-delle-imprese-201306191653563284",
+    "external": true,
+    "categoria": "ma-avvocatura",
+    "tag": "M&A · Private Equity · Banking Law"
   },
   {
     "id": "microsoft-audiencerate-partner-2024",
@@ -92,7 +140,31 @@
     "imageAlt": "Microsoft News Center on Audiencerate joining the Microsoft partner ecosystem",
     "url": "https://news.microsoft.com/it-it/2024/01/10/audiencerate-entra-a-far-parte-dellecosistema-dei-partner-microsoft-per-esplorare-nuovi-mercati-e-consolidare-la-sua-presenza-a-livello-globale/",
     "external": true,
-    "categoria": "ma-avvocatura",
+    "categoria": "imprenditoria-vc",
     "tag": "Tech · Partnership · MarTech"
+  },
+  {
+    "id": "ansa-audiencerate-google-2025",
+    "date": "2025-12-10",
+    "publication": "ANSA / Business Wire",
+    "title": "Audiencerate obtains Google Customer Match Partner status",
+    "image": "/assets/img/press/2025-12-10-ansa-audiencerate-google.jpg",
+    "imageAlt": "ANSA / Business Wire reports that Audiencerate obtains Google Customer Match Partner status",
+    "url": "https://www.ansa.it/sito/notizie/economia/business_wire/2025/12/10/audiencerate-ottiene-lo-status-di-google-customer-match-partner-rafforzando-il-suo-ruolo_49375c4b-d0c4-4a8d-b175-15ac776a528e.html",
+    "external": true,
+    "categoria": "imprenditoria-vc",
+    "tag": "AdTech · Partnership · Google"
+  },
+  {
+    "id": "microsoft-postel-audiencerate-2026",
+    "date": "2026-04-28",
+    "publication": "Microsoft News Center",
+    "title": "Microsoft Italia, Postel and Audiencerate: AI and data for Italian SMEs",
+    "image": "/assets/img/press/2026-04-28-microsoft-postel.jpg",
+    "imageAlt": "Microsoft News Center on the new Microsoft Italia, Postel and Audiencerate solution based on data and AI for Italian SMEs",
+    "url": "https://news.microsoft.com/source/emea/2026/04/microsoft-italia-e-postel-nuova-soluzione-basata-su-dati-e-ai-per-ottimizzare-il-rapporto-delle-pmi-italiane-con-i-propri-clienti/?lang=it",
+    "external": true,
+    "categoria": "imprenditoria-vc",
+    "tag": "AI · Cloud · Partnership · SMEs"
   }
 ]
