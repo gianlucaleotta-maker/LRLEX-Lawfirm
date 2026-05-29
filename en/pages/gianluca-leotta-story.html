@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="../../assets/img/favicon.png">
+  <title>Professional Story — Gianluca Leotta — LR LEX</title>
+  <meta name="description" content="A path told through the press, from 2000 to today. Entrepreneur, business lawyer, investor and deal maker in IT and finance.">
+  <link rel="canonical" href="https://lrlex.it/en/pages/gianluca-leotta-story.html">
+  <link rel="alternate" hreflang="it" href="https://lrlex.it/pages/gianluca-leotta-storia.html">
+  <link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/gianluca-leotta-story.html">
+  <link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/gianluca-leotta-storia.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body class="theme-beige-header">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html" class="logo logo--icon" aria-label="LR LEX home"><img src="../../assets/img/lrlex-logo-icon-beige.png" alt="LR LEX" class="logo__img logo__img--icon"></a>
+      <ul class="nav__menu">
+        <li><a href="../index.html" class="nav__link">Firm</a></li>
+        <li><a href="practice-areas.html" class="nav__link">Practice Areas</a></li>
+        <li><a href="team.html" class="nav__link active">People</a></li>
+        <li><a href="news.html" class="nav__link">News &amp; Insights</a></li>
+        <li><a href="contacts.html" class="nav__link">Contacts</a></li>
+        <li><a href="/pages/gianluca-leotta-storia.html" class="nav__link">IT</a></li>
+      </ul>
+      <a href="contacts.html" class="nav__cta">Contact →</a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero__inner">
+      <p class="page-hero__breadcrumb">
+        <a href="../index.html">LR LEX</a>
+        <span aria-hidden="true">›</span>
+        <a href="team.html">People</a>
+        <span aria-hidden="true">›</span>
+        <a href="team.html#gianluca-leotta">Gianluca Leotta</a>
+        <span aria-hidden="true">›</span>
+        <span>Professional Story</span>
+      </p>
+      <h1 class="page-hero__title reveal">Professional <em>Story</em>.</h1>
+      <p class="page-hero__lede reveal reveal--delay-1">
+        A path told through the press, from 2000 to today.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose prose--narrow reveal">
+        <p>
+          In the early 2000s, outlets such as <strong>Panorama</strong>, <strong>Capital</strong>, <strong>Il Mondo</strong>, <strong>Office Automation</strong> and <strong>Linea EDP</strong> followed a young entrepreneur working to consolidate independent internet operators in order to compete with the major telecommunications groups. That season ended with the market crash and the bursting of the internet bubble in 2001, which reshaped the entire sector.
+        </p>
+        <p>
+          From there, a different path: an <strong>MBA in Management Engineering</strong> at the Politecnico di Milano, then a career as a business lawyer — first in the world of investment funds and investment schemes, then in M&amp;A transactions.
+        </p>
+        <p>
+          And finally a return to the arena, as an investor and deal maker, always between <em>information technology</em> and finance. In 2012 <strong>Milano Venture</strong> completed the acquisition of <strong>Audiencerate</strong>, a UK Audience Data Management company, bringing the company into a wider, international project. Twelve years later, in 2024, Audiencerate joins the Microsoft partner ecosystem.
+        </p>
+        <p>
+          This is the thread that ties these articles together: the same idea — creating value by uniting what is fragmented — seen at different moments and from both sides of the table.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--cream);">
+    <div class="container">
+      <header class="section-head section-head--centered">
+        <h2 class="section-head__title reveal reveal--delay-1">Press <em>Coverage</em>.</h2>
+        <p class="section-head__lede reveal reveal--delay-2">In chronological order, from 2000 to today.</p>
+      </header>
+      <div id="press-grid" class="news__grid" aria-live="polite">
+        <p class="news__loading">Loading articles…</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <img src="../../assets/img/lrlex-logo-icon-beige.png" alt="LR LEX" class="site-footer__logo">
+        <p class="site-footer__tagline">Legali Riuniti Lex — Business Law Firm</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <a href="legal-notes.html">Legal Notes</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </nav>
+      <p class="site-footer__copy">© <span id="footer-year"></span> LR LEX — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var y = document.getElementById('footer-year');
+      if (y) y.textContent = new Date().getFullYear();
+
+      if (window.LRLEX && typeof window.LRLEX.loadPress === 'function') {
+        window.LRLEX.loadPress('press-grid', { sortAsc: true });
+      } else {
+        fetch('../../data/press-en.json')
+          .then(function (r) { return r.json(); })
+          .then(function (items) {
+            items.sort(function (a, b) { return a.date.localeCompare(b.date); });
+            var grid = document.getElementById('press-grid');
+            grid.innerHTML = '';
+            items.forEach(function (it) {
+              var card = document.createElement('article');
+              card.className = 'news__card reveal';
+              var dateStr = it.date.substring(0, 4);
+              var hasUrl = it.url && it.url !== '#';
+              var linkOpen = hasUrl ? '<a href="' + it.url + '" target="_blank" rel="noopener" class="news__card-link">Read article</a>' : '<span class="news__card-link" style="opacity:0.5;">Print archive</span>';
+              card.innerHTML =
+                '<div class="news__card-meta">' +
+                  '<span class="news__card-cat">' + it.publication + '</span>' +
+                  '<span class="news__card-date">' + dateStr + '</span>' +
+                '</div>' +
+                '<h3 class="news__card-title">' + it.title + '</h3>' +
+                (it.tag ? '<p class="news__card-excerpt">' + it.tag + '</p>' : '') +
+                linkOpen;
+              grid.appendChild(card);
+            });
+          })
+          .catch(function () {
+            document.getElementById('press-grid').innerHTML = '<p>Unable to load press coverage.</p>';
+          });
+      }
+    });
+  </script>
+</body>
+</html>
