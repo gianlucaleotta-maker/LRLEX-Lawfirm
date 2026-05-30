@@ -405,10 +405,8 @@ function renderPressCard(item) {
         ? `<button type="button" class="press__card-link press__card-link--btn"${lightboxAttrs}>${readLabel} <span aria-hidden="true">→</span></button>`
         : '');
 
-  // Link "Scarica originale": appare solo per articoli storici (non esterni) con immagine
-  const downloadLink = (!hasExternalUrl && hasImage)
- ? `<a class="press__card-download" href="${escapeHtml(lightboxImg)}" target="_blank" rel="noopener">${downloadLabel} <span aria-hidden="true">↓</span></a>`
-     : '';
+  // Link "Scarica originale": rimosso, l'immagine è già accessibile dal lightbox (clic destro per salvare)
+  const downloadLink = '';
 
   return `
     <article class="press__card reveal">
