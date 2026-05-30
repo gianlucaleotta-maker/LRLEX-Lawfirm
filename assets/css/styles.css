@@ -670,7 +670,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
 .subtle-link:hover { color: var(--ink); border-bottom-color: var(--brass); }
 
 /* ============================================================
-   PRESS CARDS — Horizontal list, sober archive style (Variant B)
+   PRESS CARDS — Horizontal list, sober archive style
    ============================================================ */
 .press__grid {
   display: flex;
@@ -689,9 +689,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   padding: 18px 0;
   transition: background 0.2s ease;
 }
-.press__card:hover {
-  background: rgba(245, 241, 232, 0.4);
-}
+.press__card:hover { background: rgba(245, 241, 232, 0.4); }
 .press__card-image-link {
   flex: 0 0 120px;
   width: 120px;
@@ -710,9 +708,7 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   object-position: center top;
   transition: transform 0.4s var(--ease-out, ease-out);
 }
-.press__card-image-link:hover .press__card-image {
-  transform: scale(1.05);
-}
+.press__card-image-link:hover .press__card-image { transform: scale(1.05); }
 .press__card-body {
   flex: 1;
   display: flex;
@@ -729,13 +725,8 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   text-transform: uppercase;
   margin-bottom: 2px;
 }
-.press__card-pub {
-  color: var(--brass, #8b6f47);
-  font-weight: 600;
-}
-.press__card-date {
-  color: var(--gray-500, #888);
-}
+.press__card-pub { color: var(--brass, #8b6f47); font-weight: 600; }
+.press__card-date { color: var(--gray-500, #888); }
 .press__card-title {
   font-family: var(--font-serif, "Fraunces", Georgia, serif);
   font-size: 1.08rem;
@@ -769,17 +760,10 @@ h4 { font-size: var(--text-xl); font-weight: 400; }
   cursor: pointer;
   font-family: inherit;
 }
-.press__card-link {
-  color: var(--ink, #1a1a1a);
-  font-weight: 600;
-}
+.press__card-link { color: var(--ink, #1a1a1a); font-weight: 600; }
 .press__card-link:hover { color: var(--brass, #8b6f47); }
-.press__card-link--btn {
-  text-transform: none;
-}
-.press__card-download {
-  color: var(--gray-500, #888);
-}
+.press__card-link--btn { text-transform: none; }
+.press__card-download { color: var(--gray-500, #888); }
 .press__card-download:hover { color: var(--teal, #2e7d8a); }
 .press__error {
   text-align: center;
