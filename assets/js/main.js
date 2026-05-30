@@ -381,10 +381,11 @@ function renderPressCard(item) {
   const downloadLabel = isEnglish ? 'Download original' : 'Scarica originale';
 
   // Trigger del lightbox: solo se c'è immagine
+  // Card thumbnail = item.image (placeholder); lightbox = item.clipping se c'è, altrimenti item.image
+  const lightboxImg = item.clipping && item.clipping.length ? item.clipping : item.image;
   const lightboxAttrs = hasImage
-    ? ` data-lightbox-src="${escapeHtml(item.image)}" data-lightbox-caption="${escapeHtml(item.publication + ' — ' + item.title)}"`
+    ? ` data-lightbox-src="${escapeHtml(lightboxImg)}" data-lightbox-caption="${escapeHtml(item.publication + ' — ' + item.title)}"`
     : '';
-
   // Anteprima immagine (cliccabile per lightbox)
   const imageBlock = hasImage
     ? `<button type="button" class="press__card-image-link" aria-label="${escapeHtml(item.imageAlt || item.title)}"${lightboxAttrs}>
@@ -406,8 +407,8 @@ function renderPressCard(item) {
 
   // Link "Scarica originale": appare solo per articoli storici (non esterni) con immagine
   const downloadLink = (!hasExternalUrl && hasImage)
-    ? `<a class="press__card-download" href="${escapeHtml(item.image)}" target="_blank" rel="noopener">${downloadLabel} <span aria-hidden="true">↓</span></a>`
-    : '';
+ ? `<a class="press__card-download" href="${escapeHtml(lightboxImg)}" target="_blank" rel="noopener">${downloadLabel} <span aria-hidden="true">↓</span></a>`
+     : '';
 
   return `
     <article class="press__card reveal">
