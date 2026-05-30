@@ -3,13 +3,14 @@
     "id": "panorama-uomo-compra-rete-2000",
     "date": "2000-11-09",
     "publication": "Panorama",
-    "title": "The man who is buying the Net",
+    "title": "The Man Who's Buying the Net",
     "image": "/assets/img/press/2000-11-09-panorama.jpg",
-    "imageAlt": "Panorama feature by Marco Cobianchi on the project to consolidate Italian Internet service providers",
-    "url": "#",
+    "clipping": "/assets/img/press/clippings/2000-11-09-panorama.jpg",
+    "imageAlt": "Panorama feature on the Italian internet provider consolidation strategy",
+    "url": "/en/story/2000-11-panorama-internet-aggregation.html",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "New Economy · Internet · Entrepreneurship"
+    "tag": "New Economy, Internet, Entrepreneurship"
   },
   {
     "id": "il-mondo-provider-uniti-2001",
@@ -17,11 +18,12 @@
     "publication": "Il Mondo",
     "title": "Regional providers united against the national giants",
     "image": "/assets/img/press/2001-il-mondo-1.jpg",
+    "clipping": "/assets/img/press/clippings/2001-il-mondo-1.jpg",
     "imageAlt": "Il Mondo article on the launch of Club Nautilus",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "New Economy · Internet"
+    "tag": "New Economy, Internet"
   },
   {
     "id": "repubblica-affari-finanza-web-people-2001",
@@ -29,11 +31,12 @@
     "publication": "la Repubblica Affari & Finanza",
     "title": "Web-people",
     "image": "/assets/img/press/2001-01-22-repubblica-affari-finanza.jpg",
-    "imageAlt": "la Repubblica Affari & Finanza feature by Irene Maria Scalise on Gianluca Leotta and the consolidation of Italian ISPs",
+    "clipping": "/assets/img/press/clippings/2001-01-22-repubblica-affari-finanza.jpg",
+    "imageAlt": "la Repubblica Affari & Finanza feature by Irene Maria Scalise on Gianluca Leotta",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "New Economy · Internet · Entrepreneurship"
+    "tag": "New Economy, Internet, Entrepreneurship"
   },
   {
     "id": "linea-edp-isp-2001",
@@ -41,11 +44,12 @@
     "publication": "Linea EDP",
     "title": "The consolidation of Italian ISPs",
     "image": "/assets/img/press/2001-linea-edp.jpg",
-    "imageAlt": "Linea EDP feature on Club Nautilus and the consolidation of Italian Internet service providers",
+    "clipping": "/assets/img/press/clippings/2001-linea-edp.jpg",
+    "imageAlt": "Linea EDP feature on Club Nautilus and the Italian ISP consolidation",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "ICT · Internet · Entrepreneurship"
+    "tag": "ICT, Internet, Entrepreneurship"
   },
   {
     "id": "network-news-micanet-2001",
@@ -53,23 +57,25 @@
     "publication": "Network News",
     "title": "Club Nautilus acquires Micanet",
     "image": "/assets/img/press/2001-10-20-network-news-micanet.jpg",
-    "imageAlt": "Network News article on the acquisition of Micanet by Club Nautilus",
+    "clipping": "/assets/img/press/clippings/2001-10-20-network-news-micanet.jpg",
+    "imageAlt": "Network News article on the Micanet acquisition by Club Nautilus",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "ICT · M&A · Internet"
+    "tag": "ICT, M&A, Internet"
   },
   {
     "id": "office-automation-isp-nautilus-2001",
     "date": "2001-12-01",
     "publication": "Office Automation",
-    "title": "ISPs: success travels aboard the Nautilus",
+    "title": "ISPs, the success travels aboard the Nautilus",
     "image": "/assets/img/press/2001-12-office-automation.jpg",
-    "imageAlt": "Office Automation feature on Club Nautilus and the consolidation of Italian ISPs",
+    "clipping": "/assets/img/press/clippings/2001-12-office-automation.jpg",
+    "imageAlt": "Office Automation feature on Club Nautilus and the Italian ISP aggregation",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "ICT · Internet · Entrepreneurship"
+    "tag": "ICT, Internet, Entrepreneurship"
   },
   {
     "id": "italia-oggi-club-nautilus-2001",
@@ -77,11 +83,12 @@
     "publication": "ItaliaOggi",
     "title": "Gianluca Leotta founds Club Nautilus",
     "image": "/assets/img/press/2001-12-10-italia-oggi.jpg",
-    "imageAlt": "ItaliaOggi article on Gianluca Leotta and the founding of Club Nautilus",
+    "clipping": "/assets/img/press/clippings/2001-12-10-italia-oggi.jpg",
+    "imageAlt": "ItaliaOggi article on the founding of Club Nautilus by Gianluca Leotta",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "Telco · New Economy · Entrepreneurship"
+    "tag": "Telco, New Economy, Entrepreneurship"
   },
   {
     "id": "capital-magnifici-100-2002",
@@ -89,11 +96,12 @@
     "publication": "Capital",
     "title": "The Magnificent 100, Italy's digital leadership class",
     "image": "/assets/img/press/2002-01-31-capital.jpg",
-    "imageAlt": "Capital roundup of the 100 protagonists of Italy's digital leadership class, including Gianluca Leotta",
+    "clipping": "/assets/img/press/clippings/2002-01-31-capital.jpg",
+    "imageAlt": "Capital roundup of the 100 protagonists of Italy's digital leadership class",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "New Economy · Internet · Leadership"
+    "tag": "New Economy, Internet, Leadership"
   },
   {
     "id": "il-mondo-wireless-club-2002",
@@ -101,11 +109,12 @@
     "publication": "Il Mondo",
     "title": "The wireless Club moment has arrived",
     "image": "/assets/img/press/2002-il-mondo-2.jpg",
+    "clipping": "/assets/img/press/clippings/2002-il-mondo-2.jpg",
     "imageAlt": "Il Mondo article on Club Nautilus wireless plans with Cisco",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "Wireless · Internet · Technology"
+    "tag": "Wireless, Internet, Technology"
   },
   {
     "id": "mediakey-audiencerate-acquisizione-2012",
@@ -113,11 +122,12 @@
     "publication": "Media Key",
     "title": "The acquisition of AudienceRate",
     "image": "/assets/img/press/2012-02-07-mediakey-audiencerate.jpg",
+    "clipping": "/assets/img/press/clippings/2012-02-07-mediakey-audiencerate.jpg",
     "imageAlt": "Media Key reports the acquisition of AudienceRate, a UK Audience Data Management company",
     "url": "#",
     "external": false,
     "categoria": "imprenditoria-vc",
-    "tag": "M&A · AdTech · Data Management"
+    "tag": "M&A, AdTech, Data Management"
   },
   {
     "id": "milano-finanza-fondo-valorizzazione-2013",
@@ -125,11 +135,90 @@
     "publication": "Milano Finanza",
     "title": "The launch of the Fondo Valorizzazione Imprese",
     "image": "/assets/img/press/2013-06-19-milano-finanza.jpg",
+    "clipping": "/assets/img/press/2013-06-19-milano-finanza.jpg",
     "imageAlt": "Milano Finanza on the launch of the Fondo Valorizzazione Imprese, promoted with ABI and the Italian banking system",
     "url": "https://www.milanofinanza.it/news/abi-al-via-fondo-di-valorizzazione-delle-imprese-201306191653563284",
     "external": true,
     "categoria": "ma-avvocatura",
-    "tag": "M&A · Private Equity · Banking Law"
+    "tag": "M&A, Private Equity, Banking Law"
+  },
+  {
+    "id": "monitor-immobiliare-infrastrutture-2018",
+    "date": "2018-12-30",
+    "publication": "MonitorImmobiliare",
+    "title": "Investments in infrastructure are growing (interview)",
+    "image": "/assets/img/press/2018-12-30-monitor-immobiliare-infrastrutture.jpg",
+    "clipping": "/assets/img/press/2018-12-30-monitor-immobiliare-infrastrutture.jpg",
+    "imageAlt": "Video interview with Gianluca Leotta on MonitorImmobiliare on infrastructure investments",
+    "url": "https://www.monitorimmobiliare.it/monitor-tv/crescono-gli-investimenti-in-infrastrutture-gianluca-leotta-elr-lex_201812302213/",
+    "external": true,
+    "categoria": "ma-avvocatura",
+    "tag": "Infrastructure, M&A, Real Estate"
+  },
+  {
+    "id": "sole24ore-avvocato-negoziatore-2022",
+    "date": "2022-09-27",
+    "publication": "Il Sole 24 Ore",
+    "title": "The lawyer, facilitator and negotiator",
+    "image": "/assets/img/press/2022-09-27-sole24ore-avvocato-negoziatore.jpg",
+    "clipping": "/assets/img/press/clippings/2022-09-27-sole24ore-avvocato-negoziatore.jpg",
+    "imageAlt": "Article by Gianluca Leotta on Il Sole 24 Ore on the role of the lawyer in corporate crisis as facilitator and negotiator",
+    "url": "#",
+    "external": false,
+    "categoria": "ma-avvocatura",
+    "tag": "Corporate Crisis, Corporate Law, Publication"
+  },
+  {
+    "id": "european-takeovers-globe-law-2022",
+    "date": "2022-10-24",
+    "publication": "Globe Law and Business",
+    "title": "European Takeovers: The Art of Acquisition (Italy chapter)",
+    "image": "/assets/img/press/2022-10-24-european-takeovers-globe-law.jpg",
+    "clipping": "/assets/img/press/clippings/2022-10-24-european-takeovers-globe-law.jpg",
+    "imageAlt": "Cover of the book European Takeovers: The Art of Acquisition, Globe Law and Business 2022 edition",
+    "url": "https://www.wildy.com/isbn/9781787428041/european-takeovers-the-art-of-acquisition-2nd-ed-paperback-globe-law-and-business-18ba6970-b4b1-4ba4-b5e7-7c6bf51a3b9b",
+    "external": true,
+    "categoria": "ma-avvocatura",
+    "tag": "M&A, Publication, International"
+  },
+  {
+    "id": "le-fonti-boutique-eccellenza-2022",
+    "date": "2022-11-13",
+    "publication": "Le Fonti Awards",
+    "title": "Boutique Law Firm of Excellence of the Year, corporate law M&A",
+    "image": "/assets/img/press/2022-11-13-le-fonti-boutique-eccellenza.jpg",
+    "clipping": "/assets/img/press/clippings/2022-11-13-le-fonti-boutique-eccellenza.jpg",
+    "imageAlt": "Le Fonti Awards 2022: LR LEX awarded Boutique Law Firm of Excellence of the Year for corporate law M&A",
+    "url": "#",
+    "external": false,
+    "categoria": "ma-avvocatura",
+    "tag": "Recognition, M&A, Boutique"
+  },
+  {
+    "id": "crisi-risanamento-sole24ore-2022",
+    "date": "2022-12-30",
+    "publication": "Il Sole 24 Ore",
+    "title": "Corporate Crisis and Restructuring, Commentary on the new Code",
+    "image": "/assets/img/press/2022-12-30-crisi-risanamento-sole24ore.jpg",
+    "clipping": "/assets/img/press/clippings/2022-12-30-crisi-risanamento-sole24ore.jpg",
+    "imageAlt": "Cover of the volume Corporate Crisis and Restructuring, Commentary on the new Code, Il Sole 24 Ore",
+    "url": "https://books.google.it/books?id=aGKdEAAAQBAJ",
+    "external": true,
+    "categoria": "ma-avvocatura",
+    "tag": "Corporate Crisis, Restructuring, Publication"
+  },
+  {
+    "id": "legalcommunity-lawyer-year-media-tlc-2023",
+    "date": "2023-06-21",
+    "publication": "LegalCommunity Corporate Awards",
+    "title": "Lawyer of the Year MEDIA & TLC, finalist",
+    "image": "/assets/img/press/2023-06-21-legalcommunity-lawyer-year-media-tlc.jpg",
+    "clipping": "/assets/img/press/clippings/2023-06-21-legalcommunity-lawyer-year-media-tlc.jpg",
+    "imageAlt": "LegalCommunity Corporate Awards 2023: Gianluca Leotta finalist among the best lawyers in Italy for Media & TLC",
+    "url": "#",
+    "external": false,
+    "categoria": "ma-avvocatura",
+    "tag": "Recognition, Media, TLC"
   },
   {
     "id": "microsoft-audiencerate-partner-2024",
@@ -137,11 +226,25 @@
     "publication": "Microsoft News Center Italy",
     "title": "Audiencerate joins the Microsoft partner ecosystem",
     "image": "/assets/img/press/2024-01-10-microsoft-audiencerate.jpg",
+    "clipping": "/assets/img/press/2024-01-10-microsoft-audiencerate.jpg",
     "imageAlt": "Microsoft News Center on Audiencerate joining the Microsoft partner ecosystem",
     "url": "https://news.microsoft.com/it-it/2024/01/10/audiencerate-entra-a-far-parte-dellecosistema-dei-partner-microsoft-per-esplorare-nuovi-mercati-e-consolidare-la-sua-presenza-a-livello-globale/",
     "external": true,
     "categoria": "imprenditoria-vc",
-    "tag": "Tech · Partnership · MarTech"
+    "tag": "Tech, Partnership, MarTech"
+  },
+  {
+    "id": "legalcommunity-pe-studio-anno-2024",
+    "date": "2024-09-19",
+    "publication": "LegalCommunity Private Equity Awards",
+    "title": "LR LEX Private Equity Firm of the Year",
+    "image": "/assets/img/press/2024-09-19-legalcommunity-pe-studio-anno.jpg",
+    "clipping": "/assets/img/press/clippings/2024-09-19-legalcommunity-pe-studio-anno.jpg",
+    "imageAlt": "LegalCommunity Private Equity Awards 2024: LR LEX awarded Private Equity Firm of the Year",
+    "url": "#",
+    "external": false,
+    "categoria": "ma-avvocatura",
+    "tag": "Recognition, Private Equity, Firm"
   },
   {
     "id": "ansa-audiencerate-google-2025",
@@ -149,11 +252,12 @@
     "publication": "ANSA / Business Wire",
     "title": "Audiencerate obtains Google Customer Match Partner status",
     "image": "/assets/img/press/2025-12-10-ansa-audiencerate-google.jpg",
-    "imageAlt": "ANSA / Business Wire reports that Audiencerate obtains Google Customer Match Partner status",
+    "clipping": "/assets/img/press/2025-12-10-ansa-audiencerate-google.jpg",
+    "imageAlt": "ANSA / Business Wire reports Audiencerate obtaining Google Customer Match Partner status",
     "url": "https://www.ansa.it/sito/notizie/economia/business_wire/2025/12/10/audiencerate-ottiene-lo-status-di-google-customer-match-partner-rafforzando-il-suo-ruolo_49375c4b-d0c4-4a8d-b175-15ac776a528e.html",
     "external": true,
     "categoria": "imprenditoria-vc",
-    "tag": "AdTech · Partnership · Google"
+    "tag": "AdTech, Partnership, Google"
   },
   {
     "id": "microsoft-postel-audiencerate-2026",
@@ -161,10 +265,11 @@
     "publication": "Microsoft News Center",
     "title": "Microsoft Italia, Postel and Audiencerate: AI and data for Italian SMEs",
     "image": "/assets/img/press/2026-04-28-microsoft-postel.jpg",
-    "imageAlt": "Microsoft News Center on the new Microsoft Italia, Postel and Audiencerate solution based on data and AI for Italian SMEs",
+    "clipping": "/assets/img/press/2026-04-28-microsoft-postel.jpg",
+    "imageAlt": "Microsoft News Center on the new Microsoft Italia, Postel and Audiencerate solution for Italian SMEs",
     "url": "https://news.microsoft.com/source/emea/2026/04/microsoft-italia-e-postel-nuova-soluzione-basata-su-dati-e-ai-per-ottimizzare-il-rapporto-delle-pmi-italiane-con-i-propri-clienti/?lang=it",
     "external": true,
     "categoria": "imprenditoria-vc",
-    "tag": "AI · Cloud · Partnership · SMEs"
+    "tag": "AI, Cloud, Partnership, SMEs"
   }
 ]
