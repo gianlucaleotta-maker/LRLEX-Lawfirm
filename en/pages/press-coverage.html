@@ -97,6 +97,8 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       if (window.LRLEX && typeof window.LRLEX.loadPress === 'function') {
+        window.LRLEX.config = window.LRLEX.config || {};
+        window.LRLEX.config.pressEndpoint = '/data/press-en.json';
         window.LRLEX.loadPress('press-container');
       }
     });

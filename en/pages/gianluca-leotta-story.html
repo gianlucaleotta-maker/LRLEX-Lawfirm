@@ -84,7 +84,7 @@
         <p class="site-footer__tagline">Legali Riuniti Lex — Business Law Firm</p>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
-        <a href="legal-notes.html">Legal Notes</a>
+        <a href="legal-notice.html">Legal Notice</a>
         <a href="privacy-policy.html">Privacy Policy</a>
       </nav>
       <p class="site-footer__copy">© <span id="footer-year"></span> LR LEX — All rights reserved.</p>
@@ -98,7 +98,9 @@
       if (y) y.textContent = new Date().getFullYear();
 
       if (window.LRLEX && typeof window.LRLEX.loadPress === 'function') {
-        window.LRLEX.loadPress('press-grid', { sortAsc: true });
+        window.LRLEX.config = window.LRLEX.config || {};
+        window.LRLEX.config.pressEndpoint = '/data/press-en.json';
+        window.LRLEX.loadPress('press-grid', { sortAsc: true }); // sortAsc currently no-op, intent kept for future API
       } else {
         fetch('../../data/press-en.json')
           .then(function (r) { return r.json(); })
