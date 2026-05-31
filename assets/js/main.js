@@ -374,10 +374,13 @@ function renderPressCard(item) {
   const isEnglish = document.documentElement.lang && document.documentElement.lang.toLowerCase().startsWith('en');
   const dateStr = formatDate(item.date);
   const hasExternalUrl = item.url && item.url !== '#' && item.external;
+  const hasInternalUrl = item.url && item.url !== '#' && !item.external;
   const hasImage = item.image && item.image.length;
   const readLabel = hasExternalUrl
     ? (isEnglish ? 'Read the original article' : 'Leggi articolo originale')
-    : (isEnglish ? 'View the clipping' : 'Vedi il ritaglio');
+    : hasInternalUrl
+      ? (isEnglish ? 'Read article' : 'Leggi articolo')
+      : (isEnglish ? 'View the clipping' : 'Vedi il ritaglio');
   const downloadLabel = isEnglish ? 'Download original' : 'Scarica originale';
 
   // Trigger del lightbox: solo se c'è immagine
@@ -398,12 +401,14 @@ function renderPressCard(item) {
     ? `<span class="press__card-tag">${escapeHtml(item.tag)}</span>`
     : '';
 
-  // Link "Leggi": va all'URL esterno se c'è, altrimenti apre il lightbox
+  // Link "Leggi": URL esterno → nuova scheda; URL interno (mini-pagina) → naviga direttamente; nessun URL → lightbox
   const readLink = hasExternalUrl
     ? `<a class="press__card-link" href="${escapeHtml(item.url)}" target="_blank" rel="noopener">${readLabel} <span aria-hidden="true">→</span></a>`
-    : (hasImage
-        ? `<button type="button" class="press__card-link press__card-link--btn"${lightboxAttrs}>${readLabel} <span aria-hidden="true">→</span></button>`
-        : '');
+    : hasInternalUrl
+      ? `<a class="press__card-link" href="${escapeHtml(item.url)}">${readLabel} <span aria-hidden="true">→</span></a>`
+      : (hasImage
+          ? `<button type="button" class="press__card-link press__card-link--btn"${lightboxAttrs}>${readLabel} <span aria-hidden="true">→</span></button>`
+          : '');
 
   // Link "Scarica originale": rimosso, l'immagine è già accessibile dal lightbox (clic destro per salvare)
   const downloadLink = '';
