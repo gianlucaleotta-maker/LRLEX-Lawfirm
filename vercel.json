@@ -25,6 +25,42 @@
       "source": "/:path(avvocato-[^/]+(?:\\.html)?)",
       "destination": "/pages/team.html",
       "permanent": true
+    },
+    {
+      "source": "/home",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/",
+      "permanent": true
+    },
+    {
+      "source": "/professionisti",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/pages/team.html",
+      "permanent": true
+    },
+    {
+      "source": "/contatti",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/pages/contatti.html",
+      "permanent": true
+    },
+    {
+      "source": "/en",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/en/",
+      "permanent": true
+    },
+    {
+      "source": "/en/:path*",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/en/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/",
+      "permanent": true
     }
   ],
   "rewrites": [
