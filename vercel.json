@@ -27,6 +27,12 @@
       "permanent": true
     },
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "https://lrlex.it/",
+      "permanent": true
+    },
+    {
       "source": "/home",
       "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
       "destination": "https://lrlex.it/",
