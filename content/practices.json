@@ -1,0 +1,17 @@
+{
+  "_note": "Registro pillar/practice per la validazione di related_practices e per PRACTICE_LABELS (schema Article). SEED derivato da SEO-APPENDIX-A + articolo Golden Power. Da riconciliare con la tassonomia definitiva di SEO-IMPLEMENTATION.md. url = pillar page esistente (o da creare).",
+  "practices": [
+    { "slug": "ma-finanza-straordinaria", "label": "M&A e Finanza straordinaria", "url": "/pages/aree-di-pratica.html#ma" },
+    { "slug": "private-equity", "label": "Private Equity", "url": "/pages/aree-di-pratica.html#vc" },
+    { "slug": "venture-capital", "label": "Venture Capital", "url": "/pages/aree-di-pratica.html#vc" },
+    { "slug": "golden-power", "label": "Golden Power e investimenti esteri", "url": "/pages/aree-di-pratica.html#ma" },
+    { "slug": "capital-markets", "label": "Capital Markets", "url": "/pages/aree-di-pratica.html#capital-markets" },
+    { "slug": "societario", "label": "Diritto societario e governance", "url": "/pages/aree-di-pratica.html#corporate" },
+    { "slug": "tech-data", "label": "Tech, Data & IT", "url": "/pages/aree-di-pratica.html#tech" },
+    { "slug": "ristrutturazioni", "label": "Ristrutturazioni e crisi d'impresa", "url": "/pages/aree-di-pratica.html#restructuring" },
+    { "slug": "contenzioso", "label": "Contenzioso e arbitrati", "url": "/pages/aree-di-pratica.html#litigation" },
+    { "slug": "ip", "label": "Proprietà intellettuale", "url": "/pages/aree-di-pratica.html#ip" },
+    { "slug": "privacy", "label": "Diritto della privacy", "url": "/pages/aree-di-pratica.html#privacy" },
+    { "slug": "real-estate", "label": "Real estate e amministrativo", "url": "/pages/aree-di-pratica.html#real-estate" }
+  ]
+}

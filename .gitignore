@@ -23,3 +23,9 @@ node_modules/
 
 # Vercel (locale)
 .vercel
+
+# SSG output generato (rigenerato dal build su Vercel)
+/insights/
+
+# Node
+node_modules/

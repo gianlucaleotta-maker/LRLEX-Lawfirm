@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": null,
+  "buildCommand": "npm run build",
   "outputDirectory": null,
   "cleanUrls": true,
   "trailingSlash": false,
@@ -24,6 +24,16 @@
     {
       "source": "/:path(avvocato-[^/]+(?:\\.html)?)",
       "destination": "/pages/team.html",
+      "permanent": true
+    },
+    {
+      "source": "/pages/news.html",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/pages/news",
+      "destination": "/insights",
       "permanent": true
     },
     {

@@ -1,0 +1,15 @@
+{
+  "_note": "Blocklist nominativi (ex professionisti non piu in organico + recapiti storici). La spec principale SEO-IMPLEMENTATION.md e' la fonte autorevole: integrare qui. Match case-insensitive con word boundary (vedi scripts/lib/content.mjs).",
+  "terms": [
+    "Silvano Enne",
+    "Micol Ruta",
+    "Giuseppe Francesco Bonacci",
+    "Giuseppe Bonacci",
+    "Debora Folisi",
+    "Arianna Quaranta",
+    "Edoardo Tosetto",
+    "senne@elrlex",
+    "mruta@elrlex",
+    "gfbonacci@elrlex"
+  ]
+}
