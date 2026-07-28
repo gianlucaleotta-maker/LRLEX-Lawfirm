@@ -1,0 +1,10 @@
+{
+  "_note": "STAND-IN LOCALE per Supabase. A build non ci sono credenziali Supabase, quindi related_deals viene validato contro questo registro (published=true). Sostituire con una fetch a Supabase quando le credenziali sono disponibili (vedi scripts/lib/content.mjs -> loadDeals). Slug derivati da data/news.json.",
+  "deals": [
+    { "slug": "genenta-sophia-high-tech", "published": true },
+    { "slug": "audiencerate-microsoft-postel", "published": true },
+    { "slug": "dipres-aldo-martelli", "published": true },
+    { "slug": "audiencerate-google", "published": true },
+    { "slug": "waithero-mangiatutto", "published": true }
+  ]
+}

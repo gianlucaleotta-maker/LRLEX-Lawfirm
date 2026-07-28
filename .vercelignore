@@ -2,3 +2,10 @@
 # Snapshot storici di elrlex.it (Wayback) tenuti solo come riferimento in git,
 # da non ripubblicare su lrlex.it (vedi archive/elrlex/REUSABLE-CONTENT.md).
 archive/
+
+# Documenti interni (strategia SEO / contesto agente): non servire pubblicamente
+SEO-IMPLEMENTATION.md
+SEO-APPENDIX-A-EDITORIAL.md
+SEO-APPENDIX-B-ARCHITECTURE.md
+CLAUDE.md
+AUDIT.md

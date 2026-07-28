@@ -1,0 +1,14 @@
+{
+  "_note": "Blocklist nominativi ex professionisti. VERIFICA MANUALE (B.8) 2026-07-28 CONFERMATA dal cliente: Enne, Ruta, Bonacci, Quaranta, Tosetto NON piu' in organico. 'Debora Folisi' rimossa perche' nel team attuale (era falso positivo). Match case-insensitive con word boundary.",
+  "terms": [
+    "Silvano Enne",
+    "Micol Ruta",
+    "Giuseppe Francesco Bonacci",
+    "Giuseppe Bonacci",
+    "Arianna Quaranta",
+    "Edoardo Tosetto",
+    "senne@elrlex",
+    "mruta@elrlex",
+    "gfbonacci@elrlex"
+  ]
+}
