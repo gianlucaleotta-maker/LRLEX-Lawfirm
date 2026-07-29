@@ -10,6 +10,10 @@ const PROD = process.env.VERCEL_ENV === 'production' || process.env.CONTENT_ENV 
 const OUT = resolve(ROOT, 'insights');
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
+// Header per i file prodotti dal generatore (linguist-generated + avviso).
+const GEN = '<!-- GENERATED FILE — non modificare a mano. Sorgente: content/. Rigenera: npm run build -->';
+const withGen = (html) => html.replace('<!DOCTYPE html>', `<!DOCTYPE html>\n${GEN}`);
+
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const jsonld = (o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
 const wordCount = (t) => (t.replace(/<[^>]+>/g, ' ').replace(/[#*_>`\-\[\]()!]/g, ' ').match(/\S+/g) || []).length;
@@ -54,7 +58,7 @@ function faqBlock(d) {
   return `  <section class="faq" aria-label="Domande frequenti">\n    <h2>Domande frequenti</h2>\n${items}\n  </section>\n  ${jsonld(buildFaqSchema(d))}`;
 }
 
-function renderArticle(post) {
+function renderArticle(post, argSlugs) {
   const { data: d, body, author, draft } = post;
   const bodyHtml = md.render(body);
   const canonical = `${ORIGIN}/insights/${d.slug}`;
@@ -63,7 +67,10 @@ function renderArticle(post) {
   const authorLine = author ? `<p class="article__author">di <a href="${author.url}">${esc(author.name)}</a></p>` : '';
   const draftBanner = draft ? `<div class="draft-banner" style="background:#8E6F3E;color:#fff;padding:.6rem 1rem;font-weight:600">BOZZA — non pubblicata · revisione partner richiesta</div>` : '';
   const practices = d.related_practices
-    .map((p) => `<a href="/insights/argomenti/${p}">${esc(PRACTICE_LABELS[p] || p)}</a>`)
+    .map((p) => {
+      const label = esc(PRACTICE_LABELS[p] || p);
+      return argSlugs.has(p) ? `<a href="/insights/argomenti/${p}">${label}</a>` : `<span>${label}</span>`;
+    })
     .join(' · ');
   return (
     head({
@@ -86,8 +93,9 @@ function card(post) {
   return `    <li class="insight-card"><a href="/insights/${d.slug}"><h3>${esc(d.title)}${badge}</h3><p>${esc(d.description)}</p><small>${esc(d.published)}</small></a></li>`;
 }
 
-function renderIndex(posts) {
-  const filters = PRACTICES.map((p) => `<a href="/insights/argomenti/${p.slug}">${esc(p.label)}</a>`).join(' · ');
+function renderIndex(posts, argSlugs) {
+  const filters = PRACTICES.filter((p) => argSlugs.has(p.slug))
+    .map((p) => `<a href="/insights/argomenti/${p.slug}">${esc(p.label)}</a>`).join(' · ');
   const list = posts.length
     ? `<ul class="insight-list">\n${posts.map(card).join('\n')}\n  </ul>`
     : '<p>Presto nuovi contenuti.</p>';
@@ -135,7 +143,7 @@ function updateSitemap(urls) {
     (u) => `<url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`
   );
   const body = [...existing, ...added].join('\n  ');
-  writeFileSync(file, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="${NS}">\n  ${body}\n</urlset>\n`);
+  writeFileSync(file, `<?xml version="1.0" encoding="UTF-8"?>\n<!-- GENERATED FILE — non modificare a mano. Rigenera: npm run build -->\n<urlset xmlns="${NS}">\n  ${body}\n</urlset>\n`);
 }
 
 // ---- run ------------------------------------------------------------------
@@ -144,12 +152,15 @@ const posts = loadInsights({ production: PROD }).sort((a, b) => String(b.data.pu
 if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true });
 mkdirSync(join(OUT, 'argomenti'), { recursive: true });
 
-writeFileSync(join(OUT, 'index.html'), renderIndex(posts));
+// argomenti che verranno generati (hanno un file intro): solo verso questi si linka
+const argSlugs = new Set(PRACTICES.filter((p) => existsSync(resolve(ROOT, `content/argomenti/${p.slug}.md`))).map((p) => p.slug));
+
+writeFileSync(join(OUT, 'index.html'), withGen(renderIndex(posts, argSlugs)));
 console.log(`  · /insights (${posts.length} articoli)`);
 
 const sitemapUrls = [{ loc: `${ORIGIN}/insights`, lastmod: undefined }];
 for (const post of posts) {
-  writeFileSync(join(OUT, `${post.data.slug}.html`), renderArticle(post));
+  writeFileSync(join(OUT, `${post.data.slug}.html`), withGen(renderArticle(post, argSlugs)));
   console.log(`  · /insights/${post.data.slug}${post.draft ? ' [BOZZA noindex]' : ''}`);
   if (!post.draft && isIso(post.data.updated)) sitemapUrls.push({ loc: `${ORIGIN}/insights/${post.data.slug}`, lastmod: post.data.updated });
 }
@@ -158,7 +169,7 @@ for (const practice of PRACTICES) {
   const of = posts.filter((p) => (p.data.related_practices || []).includes(practice.slug));
   const html = renderArgomento(practice, of);
   if (html) {
-    writeFileSync(join(OUT, 'argomenti', `${practice.slug}.html`), html);
+    writeFileSync(join(OUT, 'argomenti', `${practice.slug}.html`), withGen(html));
     console.log(`  · /insights/argomenti/${practice.slug} (${of.length})`);
     sitemapUrls.push({ loc: `${ORIGIN}/insights/argomenti/${practice.slug}`, lastmod: undefined });
   }
