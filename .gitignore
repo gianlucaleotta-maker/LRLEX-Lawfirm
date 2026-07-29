@@ -24,8 +24,5 @@ node_modules/
 # Vercel (locale)
 .vercel
 
-# SSG output generato (rigenerato dal build su Vercel)
-/insights/
-
-# Node
-node_modules/
+# NB: l'output SSG /insights/ e' committato (pipeline statica pura, nessun buildCommand su Vercel).
+# Rigenerare con `npm run build` prima del commit quando cambiano i contenuti.
