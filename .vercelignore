@@ -9,3 +9,11 @@ SEO-APPENDIX-A-EDITORIAL.md
 SEO-APPENDIX-B-ARCHITECTURE.md
 CLAUDE.md
 AUDIT.md
+
+# Toolchain di build SSG: esclusa dal deploy. Il sito servito e' statico
+# (HTML committato, incluso /insights/). Il build gira solo in locale/CI, non su Vercel.
+package.json
+package-lock.json
+scripts/
+content/
+.github/
