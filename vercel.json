@@ -49,31 +49,13 @@
       "permanent": true
     },
     {
-      "source": "/professionisti",
-      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
-      "destination": "https://lrlex.it/pages/team.html",
-      "permanent": true
-    },
-    {
       "source": "/contatti",
       "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
       "destination": "https://lrlex.it/pages/contatti.html",
       "permanent": true
     },
     {
-      "source": "/en",
-      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
-      "destination": "https://lrlex.it/en/",
-      "permanent": true
-    },
-    {
-      "source": "/en/:path*",
-      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
-      "destination": "https://lrlex.it/en/",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
+      "source": "/:path((?!professionisti)(?!en).*)",
       "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
       "destination": "https://lrlex.it/",
       "permanent": true
@@ -81,11 +63,41 @@
   ],
   "rewrites": [
     {
+      "source": "/professionisti",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "/410"
+    },
+    {
+      "source": "/en",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "/410"
+    },
+    {
+      "source": "/en/:path*",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "destination": "/410"
+    },
+    {
       "source": "/category/:path*",
       "destination": "/410"
     }
   ],
   "headers": [
+    {
+      "source": "/professionisti",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/en/:path*",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
+    {
+      "source": "/en",
+      "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    },
     {
       "source": "/category/(.*)",
       "headers": [
