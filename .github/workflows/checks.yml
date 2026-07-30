@@ -32,8 +32,8 @@ jobs:
         run: CONTENT_ENV=production npm run build
       - name: l'output committato deve coincidere con quello rigenerato
         run: |
-          git diff --exit-code -- insights sitemap.xml \
-            || (echo "::error::Output /insights o sitemap.xml non aggiornati: esegui 'npm run build' e committa." && exit 1)
+          git diff --exit-code -- insights aree-di-pratica sitemap.xml \
+            || (echo "::error::Output generato (insights/aree-di-pratica/sitemap.xml) non aggiornato: esegui 'npm run build' e committa." && exit 1)
 
   check-links:
     runs-on: ubuntu-latest

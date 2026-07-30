@@ -1,17 +1,26 @@
 {
-  "_note": "Registro pillar/practice per la validazione di related_practices e per PRACTICE_LABELS (schema Article). SEED derivato da SEO-APPENDIX-A + articolo Golden Power. Da riconciliare con la tassonomia definitiva di SEO-IMPLEMENTATION.md. url = pillar page esistente (o da creare).",
+  "_note": "Tassonomia aree di pratica, allineata all'albero della sezione B.4 (SEO-APPENDIX-B, autorevole). parent=null => pillar; parent=<slug> => satellite. related_practices degli insight e' validato contro questi slug (pillar e satellite ammessi).",
+  "hub": { "label": "Aree di Pratica", "url": "/aree-di-pratica" },
   "practices": [
-    { "slug": "ma-finanza-straordinaria", "label": "M&A e Finanza straordinaria", "url": "/pages/aree-di-pratica.html#ma" },
-    { "slug": "private-equity", "label": "Private Equity", "url": "/pages/aree-di-pratica.html#vc" },
-    { "slug": "venture-capital", "label": "Venture Capital", "url": "/pages/aree-di-pratica.html#vc" },
-    { "slug": "golden-power", "label": "Golden Power e investimenti esteri", "url": "/pages/aree-di-pratica.html#ma" },
-    { "slug": "capital-markets", "label": "Capital Markets", "url": "/pages/aree-di-pratica.html#capital-markets" },
-    { "slug": "societario", "label": "Diritto societario e governance", "url": "/pages/aree-di-pratica.html#corporate" },
-    { "slug": "tech-data", "label": "Tech, Data & IT", "url": "/pages/aree-di-pratica.html#tech" },
-    { "slug": "ristrutturazioni", "label": "Ristrutturazioni e crisi d'impresa", "url": "/pages/aree-di-pratica.html#restructuring" },
-    { "slug": "contenzioso", "label": "Contenzioso e arbitrati", "url": "/pages/aree-di-pratica.html#litigation" },
-    { "slug": "ip", "label": "Proprietà intellettuale", "url": "/pages/aree-di-pratica.html#ip" },
-    { "slug": "privacy", "label": "Diritto della privacy", "url": "/pages/aree-di-pratica.html#privacy" },
-    { "slug": "real-estate", "label": "Real estate e amministrativo", "url": "/pages/aree-di-pratica.html#real-estate" }
+    { "slug": "ma-finanza-straordinaria", "label": "M&A e Finanza straordinaria", "parent": null, "url": "/aree-di-pratica/ma-finanza-straordinaria" },
+    { "slug": "private-equity", "label": "Private Equity", "parent": null, "url": "/aree-di-pratica/private-equity" },
+    { "slug": "venture-capital", "label": "Venture Capital", "parent": null, "url": "/aree-di-pratica/venture-capital" },
+    { "slug": "diritto-societario", "label": "Diritto societario e governance", "parent": null, "url": "/aree-di-pratica/diritto-societario" },
+    { "slug": "capital-markets", "label": "Capital Markets", "parent": null, "url": "/aree-di-pratica/capital-markets" },
+    { "slug": "ristrutturazioni-crisi-impresa", "label": "Ristrutturazioni e crisi d'impresa", "parent": null, "url": "/aree-di-pratica/ristrutturazioni-crisi-impresa" },
+    { "slug": "tech-data-ai", "label": "Tech, Data e AI", "parent": null, "url": "/aree-di-pratica/tech-data-ai" },
+    { "slug": "proprieta-intellettuale", "label": "Proprieta intellettuale", "parent": null, "url": "/aree-di-pratica/proprieta-intellettuale" },
+    { "slug": "privacy", "label": "Diritto della privacy", "parent": null, "url": "/aree-di-pratica/privacy" },
+    { "slug": "contenzioso-arbitrati", "label": "Contenzioso e arbitrati", "parent": null, "url": "/aree-di-pratica/contenzioso-arbitrati" },
+    { "slug": "amministrativo-real-estate", "label": "Amministrativo e Real estate", "parent": null, "url": "/aree-di-pratica/amministrativo-real-estate" },
+
+    { "slug": "golden-power", "label": "Golden Power", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/golden-power" },
+    { "slug": "acquisizione-pmi", "label": "Acquisizione di PMI", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/acquisizione-pmi" },
+    { "slug": "cessione-ramo-azienda", "label": "Cessione di ramo d'azienda", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/cessione-ramo-azienda" },
+    { "slug": "due-diligence-legale", "label": "Due diligence legale", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/due-diligence-legale" },
+    { "slug": "spa-compravendita-partecipazioni", "label": "SPA e compravendita di partecipazioni", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/spa-compravendita-partecipazioni" },
+    { "slug": "patti-parasociali", "label": "Patti parasociali", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/patti-parasociali" },
+    { "slug": "joint-venture", "label": "Joint venture", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/joint-venture" },
+    { "slug": "ma-cross-border", "label": "M&A cross-border", "parent": "ma-finanza-straordinaria", "url": "/aree-di-pratica/ma-finanza-straordinaria/ma-cross-border" }
   ]
 }

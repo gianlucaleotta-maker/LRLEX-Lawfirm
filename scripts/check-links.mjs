@@ -60,8 +60,9 @@ if (existsSync(mdxDir)) {
   }
 }
 // 2) output generato non-draft (le pagine draft hanno noindex e non vanno in prod)
-const genDir = resolve(ROOT, 'insights');
-if (existsSync(genDir)) {
+for (const gen of ['insights', 'aree-di-pratica']) {
+  const genDir = resolve(ROOT, gen);
+  if (!existsSync(genDir)) continue;
   (function walk(dir) {
     for (const name of readdirSync(dir)) {
       const full = join(dir, name);

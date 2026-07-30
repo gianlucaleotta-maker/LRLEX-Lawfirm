@@ -5,7 +5,10 @@
   "type": "module",
   "description": "LR LEX — sito statico + generatore editoriale /insights (SSG)",
   "scripts": {
-    "build": "node scripts/build-insights.mjs",
+    "build": "node scripts/build.mjs",
+    "build:insights": "node scripts/build-insights.mjs",
+    "build:practices": "node scripts/build-practices.mjs",
+    "build:sitemap": "node scripts/build-sitemap.mjs",
     "check:content": "node scripts/check-content.mjs",
     "check:blocklist": "node scripts/check-blocklist.mjs",
     "check:links": "node scripts/check-links.mjs"

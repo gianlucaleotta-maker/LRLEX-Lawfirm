@@ -1,3 +1,4 @@
 # Output prodotto dai generatori: marcato come generato (escluso da diff/statistiche).
 insights/** linguist-generated=true
+aree-di-pratica/** linguist-generated=true
 sitemap.xml linguist-generated=true

@@ -1,144 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- GENERATED FILE — non modificare a mano. Rigenera: npm run build -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://lrlex.it/</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/aree-di-pratica.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/aree-di-pratica.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/practice-areas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/aree-di-pratica.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/team.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/team.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/team.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/team.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/news.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/news.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/news.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/news.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/contatti.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/contatti.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/contatti.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/contatti.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/track-record.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/track-record.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/gaetano-bentivegna-track-record.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/gaetano-bentivegna-track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/gaetano-bentivegna-track-record.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/pages/carla-talarico-track-record.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/carla-talarico-track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/carla-talarico-track-record.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/practice-areas.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/aree-di-pratica.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/practice-areas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/aree-di-pratica.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/team.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/team.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/team.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/team.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/news.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/news.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/news.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/news.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/contatti.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/contatti.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/contatti.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lrlex.it/pages/contatti.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/track-record.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/track-record.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/gaetano-bentivegna-track-record.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.45</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/gaetano-bentivegna-track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/gaetano-bentivegna-track-record.html"/>
-  </url>
-  <url>
-    <loc>https://lrlex.it/en/pages/carla-talarico-track-record.html</loc>
-    <lastmod>2026-05-09</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.45</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lrlex.it/pages/carla-talarico-track-record.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lrlex.it/en/pages/carla-talarico-track-record.html"/>
-  </url>
+  <url><loc>https://lrlex.it/</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/amministrativo-real-estate</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/capital-markets</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/contenzioso-arbitrati</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/diritto-societario</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/acquisizione-pmi</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/cessione-ramo-azienda</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/due-diligence-legale</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/golden-power</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/joint-venture</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/ma-cross-border</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/patti-parasociali</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ma-finanza-straordinaria/spa-compravendita-partecipazioni</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/privacy</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/private-equity</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/proprieta-intellettuale</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/ristrutturazioni-crisi-impresa</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/tech-data-ai</loc></url>
+  <url><loc>https://lrlex.it/aree-di-pratica/venture-capital</loc></url>
+  <url><loc>https://lrlex.it/en/</loc></url>
+  <url><loc>https://lrlex.it/en/pages/carla-talarico-track-record</loc></url>
+  <url><loc>https://lrlex.it/en/pages/contatti</loc></url>
+  <url><loc>https://lrlex.it/en/pages/gaetano-bentivegna-track-record</loc></url>
+  <url><loc>https://lrlex.it/en/pages/news</loc></url>
+  <url><loc>https://lrlex.it/en/pages/practice-areas</loc></url>
+  <url><loc>https://lrlex.it/en/pages/team</loc></url>
+  <url><loc>https://lrlex.it/en/pages/track-record</loc></url>
   <url><loc>https://lrlex.it/insights</loc></url>
+  <url><loc>https://lrlex.it/pages/carla-talarico-track-record</loc></url>
+  <url><loc>https://lrlex.it/pages/contatti</loc></url>
+  <url><loc>https://lrlex.it/pages/gaetano-bentivegna-track-record</loc></url>
+  <url><loc>https://lrlex.it/pages/rassegna-stampa</loc></url>
+  <url><loc>https://lrlex.it/pages/team</loc></url>
+  <url><loc>https://lrlex.it/pages/track-record</loc></url>
 </urlset>
