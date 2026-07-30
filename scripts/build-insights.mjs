@@ -33,16 +33,60 @@ function head({ title, description, canonical, alternate, lang = 'it', noindex =
   <link rel="icon" type="image/png" href="/assets/img/favicon.png">
   <link rel="stylesheet" href="/assets/css/styles.css">${extra}
 </head>
-<body>
-  <header class="site-header"><div class="container nav">
-    <a class="nav__brand" href="/"><img src="/assets/img/lrlex-logo-horizontal.png" alt="LR LEX" height="28"></a>
-    <nav class="nav__links"><a href="/insights">Insights</a> · <a href="/pages/team.html">Professionisti</a> · <a href="/pages/contatti.html">Contatti</a></nav>
-  </div></header>`;
+<body class="theme-beige-header">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main">
+      <a href="/" class="logo logo--icon" aria-label="LR LEX home"><img src="/assets/img/lrlex-logo-icon-beige.png" alt="LR LEX" class="logo__img logo__img--icon"></a>
+      <ul class="nav__menu">
+        <li><a href="/" class="nav__link">Studio</a></li>
+        <li><a href="/pages/aree-di-pratica.html" class="nav__link">Aree di Pratica</a></li>
+        <li><a href="/pages/team.html" class="nav__link">Professionisti</a></li>
+        <li><a href="/pages/news.html" class="nav__link">News &amp; Insights</a></li>
+        <li><a href="/pages/contatti.html" class="nav__link">Contatti</a></li>
+        <li><a href="/en/" class="nav__link">EN</a></li>
+      </ul>
+      <a href="/pages/contatti.html" class="nav__cta">Contatti &rarr;</a>
+    </nav>
+  </header>`;
 }
 const footer = `
-  <footer class="site-footer"><div class="container">
-    <p>LR LEX — Avvocati Associati · Foro Buonaparte, 51 · 20121 Milano · <a href="/pages/contatti.html">Contatti</a></p>
-  </div></footer>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <p class="footer__brand"><img src="/assets/img/lrlex-logo-horizontal-dark.png" alt="LR LEX" class="footer__brand-logo footer__brand-logo--dark"></p>
+          <p class="footer__tagline">LR LEX — Studio Legale d'Affari dedicato alle imprese e agli investitori.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Sede</p>
+          <ul class="footer__list">
+            <li>Foro Buonaparte, 51</li>
+            <li>20121 Milano · Italia</li>
+            <li><span class="label">Tel</span><a href="tel:+390282196887">+39 02 8219 6887</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Contatti</p>
+          <ul class="footer__list">
+            <li><a href="mailto:info@lrlex.it">info@lrlex.it</a></li>
+            <li><span class="label">PEC</span><a href="mailto:legaliriunitilex@pec.it">legaliriunitilex@pec.it</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Naviga</p>
+          <ul class="footer__list">
+            <li><a href="/pages/aree-di-pratica.html">Aree di Pratica</a></li>
+            <li><a href="/pages/team.html">Professionisti</a></li>
+            <li><a href="/pages/news.html">News &amp; Insights</a></li>
+            <li><a href="/pages/contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 LR LEX — Avvocati Associati. P.IVA 11580530969</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>`;
 
@@ -87,17 +131,17 @@ function card(post) {
 }
 
 function renderIndex(posts) {
-  const filters = PRACTICES.map((p) => `<a href="/insights/argomenti/${p.slug}">${esc(p.label)}</a>`).join(' · ');
   const list = posts.length
-    ? `<ul class="insight-list">\n${posts.map(card).join('\n')}\n  </ul>`
+    ? `<div class="news__grid">\n${posts.map(card).join('\n')}\n      </div>`
     : '<p>Presto nuovi contenuti.</p>';
   return (
     head({
       title: 'Insights — LR LEX',
       description: 'Analisi e guide operative su M&A, private equity, venture capital, Golden Power e crisi d’impresa, a firma dei professionisti di LR LEX.',
       canonical: `${ORIGIN}/insights`,
+      noindex: true,
     }) +
-    `\n  <main class="insights container">\n    <h1>Insights</h1>\n    <nav class="insights__filters">${filters}</nav>\n    ${list}\n  </main>` +
+    `\n  <main>\n    <section class="section"><div class="container">\n      <h1>Insights</h1>\n      ${list}\n    </div></section>\n  </main>` +
     footer
   );
 }
@@ -147,7 +191,7 @@ mkdirSync(join(OUT, 'argomenti'), { recursive: true });
 writeFileSync(join(OUT, 'index.html'), renderIndex(posts));
 console.log(`  · /insights (${posts.length} articoli)`);
 
-const sitemapUrls = [{ loc: `${ORIGIN}/insights`, lastmod: undefined }];
+const sitemapUrls = []; // /insights e' noindex finche' vuota: fuori dalla sitemap
 for (const post of posts) {
   writeFileSync(join(OUT, `${post.data.slug}.html`), renderArticle(post));
   console.log(`  · /insights/${post.data.slug}${post.draft ? ' [BOZZA noindex]' : ''}`);
