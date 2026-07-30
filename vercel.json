@@ -27,16 +27,6 @@
       "permanent": true
     },
     {
-      "source": "/pages/news.html",
-      "destination": "/insights",
-      "permanent": true
-    },
-    {
-      "source": "/pages/news",
-      "destination": "/insights",
-      "permanent": true
-    },
-    {
       "source": "/",
       "has": [{ "type": "host", "value": "^(www\\.)?elrlex\\.it$" }],
       "destination": "https://lrlex.it/",
