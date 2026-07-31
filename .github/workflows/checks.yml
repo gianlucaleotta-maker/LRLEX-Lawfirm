@@ -1,0 +1,46 @@
+name: checks
+
+on: pull_request
+
+jobs:
+  check-blocklist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install
+      - run: npm run check:blocklist
+
+  check-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install
+      - run: npm run check:content
+
+  verify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install
+      - name: build (production)
+        run: CONTENT_ENV=production npm run build
+      - name: l'output committato deve coincidere con quello rigenerato
+        run: |
+          git diff --exit-code -- insights sitemap.xml \
+            || (echo "::error::Output /insights o sitemap.xml non aggiornati: esegui 'npm run build' e committa." && exit 1)
+
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm install
+      - run: npm run build
+      - run: npm run check:links

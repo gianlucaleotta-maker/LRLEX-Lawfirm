@@ -10,6 +10,10 @@ const PROD = process.env.VERCEL_ENV === 'production' || process.env.CONTENT_ENV 
 const OUT = resolve(ROOT, 'insights');
 const md = new MarkdownIt({ html: true, linkify: true, typographer: true });
 
+// Header per i file prodotti dal generatore (CLAUDE.md: ogni file generato lo porta).
+const GEN = '<!-- GENERATED FILE — non modificare a mano. Sorgente: content/. Rigenera: npm run build -->';
+const withGen = (html) => html.replace('<!DOCTYPE html>', `<!DOCTYPE html>\n${GEN}`);
+
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const jsonld = (o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`;
 const wordCount = (t) => (t.replace(/<[^>]+>/g, ' ').replace(/[#*_>`\-\[\]()!]/g, ' ').match(/\S+/g) || []).length;
@@ -179,7 +183,7 @@ function updateSitemap(urls) {
     (u) => `<url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`
   );
   const body = [...existing, ...added].join('\n  ');
-  writeFileSync(file, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="${NS}">\n  ${body}\n</urlset>\n`);
+  writeFileSync(file, `<?xml version="1.0" encoding="UTF-8"?>\n<!-- GENERATED FILE — non modificare a mano. Rigenera: npm run build -->\n<urlset xmlns="${NS}">\n  ${body}\n</urlset>\n`);
 }
 
 // ---- run ------------------------------------------------------------------
@@ -188,12 +192,12 @@ const posts = loadInsights({ production: PROD }).sort((a, b) => String(b.data.pu
 if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true });
 mkdirSync(join(OUT, 'argomenti'), { recursive: true });
 
-writeFileSync(join(OUT, 'index.html'), renderIndex(posts));
+writeFileSync(join(OUT, 'index.html'), withGen(renderIndex(posts)));
 console.log(`  · /insights (${posts.length} articoli)`);
 
 const sitemapUrls = []; // /insights e' noindex finche' vuota: fuori dalla sitemap
 for (const post of posts) {
-  writeFileSync(join(OUT, `${post.data.slug}.html`), renderArticle(post));
+  writeFileSync(join(OUT, `${post.data.slug}.html`), withGen(renderArticle(post)));
   console.log(`  · /insights/${post.data.slug}${post.draft ? ' [BOZZA noindex]' : ''}`);
   if (!post.draft && isIso(post.data.updated)) sitemapUrls.push({ loc: `${ORIGIN}/insights/${post.data.slug}`, lastmod: post.data.updated });
 }
@@ -202,7 +206,7 @@ for (const practice of PRACTICES) {
   const of = posts.filter((p) => (p.data.related_practices || []).includes(practice.slug));
   const html = renderArgomento(practice, of);
   if (html) {
-    writeFileSync(join(OUT, 'argomenti', `${practice.slug}.html`), html);
+    writeFileSync(join(OUT, 'argomenti', `${practice.slug}.html`), withGen(html));
     console.log(`  · /insights/argomenti/${practice.slug} (${of.length})`);
     sitemapUrls.push({ loc: `${ORIGIN}/insights/argomenti/${practice.slug}`, lastmod: undefined });
   }

@@ -226,3 +226,31 @@ Non esiste `content/argomenti/` (le pagine argomento non hanno file intro). `con
   - `content/deals.json` → campo `_note`: dichiara il file come “STAND-IN LOCALE per Supabase … a build non ci sono credenziali Supabase … sostituire con una fetch a Supabase quando le credenziali sono disponibili”.
   - `scripts/lib/content.mjs` → commenti (righe ~22, ~86) e messaggio di errore (~89): la validazione di `related_deals` avviene contro `content/deals.json` (funzione `loadDeals`), descritto come stand-in di Supabase.
 - In sintesi: l'integrazione Supabase **non è configurata**; `related_deals` è validato contro il registro locale `content/deals.json`.
+
+---
+
+## Appendice — Incidente deploy Vercel del `buildCommand` (2026-07-29)
+
+> ⚠️ **Log esatto non disponibile.** Non ho accesso al dashboard Vercel né ai build log del progetto. Quanto segue è la **diagnosi dedotta dai sintomi osservati via `curl`**, non il messaggio di errore catturato. Il log reale va recuperato dal dashboard Vercel (Deployments → deployment fallito → Build Logs) per conferma.
+
+**Contesto.** Il merge di `seo/phase-2-insights` in `main` ha introdotto in `vercel.json` `"buildCommand": "npm run build"` (framework `null`, `outputDirectory` `null`).
+
+**Sintomi osservati in produzione dopo il merge** (poll `curl`, ~3 min):
+- `https://lrlex.it/` , `/pages/team`, `/pages/aree-di-pratica` → **200** (sito NON rotto)
+- `https://lrlex.it/insights` → **404** (pagina generata non servita)
+- `https://lrlex.it/pages/news.html` → 308 verso **`/pages/news`** (redirect *vecchio*, non il nuovo `→ /insights`)
+
+Il fatto che anche i redirect di `vercel.json` fossero ancora quelli vecchi indica che **l'intero nuovo deploy non è andato live**: Vercel ha mantenuto l'ultimo deployment andato a buon fine (pre-phase-2).
+
+**Causa dedotta.** Con framework "Other" (`null`) e un `buildCommand`, ma senza `outputDirectory`, Vercel cerca una cartella di output di default (`public/`) che nel repo non esiste. L'errore atteso è della famiglia:
+
+```
+Error: No Output Directory named "public" found after the Build completed.
+Configure the Output Directory in your Project Settings.
+```
+
+Il build fallisce → Vercel **conserva il deploy precedente** (perciò il sito resta su, ma senza le novità).
+
+**Fattore aggravante.** La sola presenza di uno script `"build"` in `package.json` fa sì che Vercel esegua comunque `npm run build` anche riportando `"buildCommand": null` in `vercel.json`: il tentativo di tornare statici cambiando solo `buildCommand` **non è bastato** (il deploy ha continuato a fallire allo stesso modo).
+
+**Risoluzione applicata.** Ripristino di una pipeline **statica pura**: l'output SSG (`insights/`) è **committato** e la toolchain di build (`package.json`, `scripts/`, `content/`, `.github/`) è **esclusa dal deploy** via `.vercelignore`, così Vercel non rileva alcun build e serve direttamente l'HTML committato. Post-fix: `https://lrlex.it/insights` → **200**. Il build gira ora solo in locale e in CI (GitHub Actions), non su Vercel.
